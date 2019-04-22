@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 648, y: 498}
+  m_MinSize: {x: 646, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 2886
+  controlID: 3392
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1445
     height: 947
-  m_MinSize: {x: 406, y: 498}
+  m_MinSize: {x: 404, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 2887
+  controlID: 3393
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1445
     height: 673
-  m_MinSize: {x: 406, y: 224}
-  m_MaxSize: {x: 8006, y: 4024}
+  m_MinSize: {x: 404, y: 224}
+  m_MaxSize: {x: 8004, y: 4024}
   vertical: 0
-  controlID: 2888
+  controlID: 3394
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -384,9 +384,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c63b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: d6fbffffee100000
+      m_SelectedIDs: f2340000
+      m_LastClickedID: 13554
+      m_ExpandedIDs: a2f6ffffec340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -402,7 +402,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -441,9 +441,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.6080305, y: 0.22327818, z: -0.091796875}
+    m_Target: {x: -6.995768, y: -0.87987375, z: 37.844093}
     speed: 2
-    m_Value: {x: -0.6080305, y: 0.22327818, z: -0.091796875}
+    m_Value: {x: -6.995768, y: -0.87987375, z: 37.844093}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -471,18 +471,18 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: -1}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: -1}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 11.494376
+    m_Target: 14.578916
     speed: 2
-    m_Value: 11.494376
+    m_Value: 14.578916
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
-  m_ShowGlobalGrid: 0
+  m_ShowGlobalGrid: 1
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -602,14 +602,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Sprites
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\usuario\Desktop\greedy_psw\greedy_game
+  m_LastProjectPath: C:\Users\FVJohnny\Downloads\greedy_psw-master\greedy_game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1e0e0000
-    m_LastClickedID: 3614
-    m_ExpandedIDs: 000000007409000084090000160d00006e0d0000bc0d00001e0e0000fe0e0000e20f00001010000000ca9a3b
+    m_SelectedIDs: 82330000
+    m_LastClickedID: 13186
+    m_ExpandedIDs: 00000000ac2f00008233000070340000323500003435000036350000383500003a3500003c35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -637,7 +637,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007409000084090000160d00006e0d0000bc0d00001e0e0000fe0e0000e20f00001010000000ca9a3b
+    m_ExpandedIDs: 00000000ac2f00008233000070340000323500003435000036350000383500003a3500003c35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000440e00007a0a0000ce0f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
