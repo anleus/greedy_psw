@@ -50,15 +50,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 1, y: -11, z: 0}
-    second:
-      m_TileIndex: 193
-      m_TileSpriteIndex: 193
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: -2, y: -9, z: 0}
     second:
       m_TileIndex: 176
@@ -1646,7 +1637,7 @@ Tilemap:
   - first: {x: -2, y: 2, z: 0}
     second:
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 193
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -2175,11 +2166,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 3897cd2f926b3ac43a0543c3e44a25cb, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: bc013c7cd4ad2e84fb8b832c2f5f486e, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 374bfef7608d28242812a67cb9b1a8b4, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: ed645208ecf9d6d4f8b2a8be2a90c505, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300002, guid: ed645208ecf9d6d4f8b2a8be2a90c505, type: 3}
   - m_RefCount: 1
@@ -2565,9 +2556,9 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 0ccb12d2669049042b005231e3558e03, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: fe72fee7b260bba459c44da82c6287b1, type: 3}
+    m_Data: {fileID: 21300000, guid: ed645208ecf9d6d4f8b2a8be2a90c505, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 194
+  - m_RefCount: 193
     m_Data:
       e00: 1
       e01: 0
@@ -2586,8 +2577,10 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 194
+  - m_RefCount: 193
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 1e-45, g: 1e-45, b: 1e-45, a: 1e-45}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -2, y: -11, z: 0}

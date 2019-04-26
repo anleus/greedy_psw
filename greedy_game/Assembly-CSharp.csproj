@@ -60,16 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\CollectableBounce.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Door.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\FadeScript.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\MenuButtons.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\SpikeTrap.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Tile.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\TimedAnimations.cs" />
-    <Compile Include="Assets\Tiles\HyperLuminal\2D Fantasy Forest Tileset\Scripts\Trigger.cs" />
+    <Compile Include="Assets\Scripts\Movement.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/usuario/Desktop/greedy_psw/greedy_game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
