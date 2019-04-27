@@ -12,13 +12,13 @@ public class Movement : MonoBehaviour
     private float maxMoveTimer;
     private float moveTimer;
 
+    [Range(1f, 100f)]
     public float speed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         oldPosition = transform.position;
-        speed = 1000;
     }
 
     void Update()
@@ -26,15 +26,15 @@ public class Movement : MonoBehaviour
         currentPosition = transform.position;
         Controller();  
 
-        limitDistance();
+        //limitDistance();
     }
 
     private void Controller()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow)) rb.AddForce(Vector2.right * speed);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) rb.AddForce(Vector2.left * speed);
-        else if (Input.GetKeyDown(KeyCode.UpArrow)) rb.AddForce(Vector2.up * speed);
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) rb.AddForce(Vector2.down * speed);
+        if (Input.GetKeyDown(KeyCode.RightArrow)) rb.velocity = new Vector2(speed, 0);
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) rb.velocity = new Vector2(speed * -1f, 0);
+        else if (Input.GetKeyDown(KeyCode.UpArrow)) rb.velocity = new Vector2(0, speed);
+        else if (Input.GetKeyDown(KeyCode.DownArrow)) rb.velocity = new Vector2(0, speed * -1);
     }
 
     //No acaba de funcionar
