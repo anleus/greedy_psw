@@ -33,8 +33,6 @@ public abstract class Character : MonoBehaviour
         animator.SetFloat("x", xValue);
         animator.SetFloat("y", direction.y);
 
-        Debug.Log("x; " + xValue);
-        Debug.Log("y; " + direction.y);
         animator.SetBool("stop", direction == Vector2.zero);
     }
 }
