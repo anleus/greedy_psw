@@ -1,20 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int score;
-    public int lifes;
-    public int lifeBar;
+    private Stats playerStats;
 
-    public bool playerDied;
+    //public bool playerDied;
+
+    public Text lifeScore;
 
     void Awake()
     {
         MakeSingleton();
+    }
+
+    void Update()
+    {
     }
 
     private void MakeSingleton()
@@ -27,4 +32,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }      
     }
+
+    
 }
