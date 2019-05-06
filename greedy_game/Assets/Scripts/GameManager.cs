@@ -24,14 +24,14 @@ public class GameManager : MonoBehaviour
 
     private void MakeSingleton()
     {
-        if (instance != null) { 
+        if (instance != null) {
             Destroy(gameObject);
         }
-        else { 
+        else {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }      
+        }
     }
 
-    
+
 }
