@@ -21,9 +21,18 @@ public class BaseEntity : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Instantiate(effect, transform.position, Quaternion.identity);
-        Instantiate(effect, col.gameObject.transform.position, Quaternion.identity);
-        Destroy(col.gameObject);
-        Destroy(gameObject);
+        if(col.gameObject) {
+            Instantiate(effect, transform.position, Quaternion.identity);
+            Instantiate(effect, col.gameObject.transform.position, Quaternion.identity);
+            //Destroy(col.gameObject);
+            Destroy(gameObject);
+            ReduceLife(col.gameObject);
+        }
+    }
+
+    private void ReduceLife(GameObject monkey) 
+    {
+        Stats stats = monkey.GetComponent<Stats>();
+        stats.ReduceHealth(50);
     }
 }

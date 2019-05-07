@@ -8,35 +8,25 @@ public class Stats : MonoBehaviour
     public static int maxLifes = 5;
 
     public int lifes;
-    private int score;
-
-    public Text lifeScore;
-
+    public int calories;
+    public int health;
 
     void Awake()
     {
         lifes = maxLifes;
-        score = 0;
-
-        LifeManagement();
-        LifeCounter();
+        calories = 0;
+        health = 100;
     }
 
     void Update()
     {
-        LifeManagement();
-        LifeCounter();
+ 
     }
 
-    private void LifeManagement()
+    public void ReduceHealth(int quantity)
     {
-        if (lifes > 5) lifes = 5;
-        if (lifes < 0) lifes = 0;
-    }
-
-    private void LifeCounter()
-    {
-        lifeScore.text = "" + lifes;
+        // Llamar antes a un método que controle que no te has muerto o que no te pasas de vida (cuando añadamos)
+        health -= quantity;
     }
 }
 
