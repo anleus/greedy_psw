@@ -53,8 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BaseEntity.cs" />
-     <Compile Include="Assets\CaloriesUI.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
@@ -65,11 +63,19 @@
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
-     <Compile Include="Assets\Scripts\Characters\Shadow.cs" />
+     <Compile Include="Assets\Scripts\Edibles\BadBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Edibles\BaseEntity.cs" />
+     <Compile Include="Assets\Scripts\Edibles\GoodBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Base_enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\BaseEnemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\menu_scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Menu\CaloriesUI.cs" />
+     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Player\Character.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Player\Shadow.cs" />
+     <Compile Include="Assets\Scripts\Player\Stats.cs" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX Free.txt" />
