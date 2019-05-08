@@ -6,7 +6,34 @@
 !.gitattributes
 !README.md
 
-# Whitelisted directories/files
-!/greedy_game/ProjectSettings/
-!/greedy_game/Assets/                # Add Assets folder
-/greedy_game/Library/ 
+# =============== #
+# Unity generated #
+# =============== #
+greedy_game/Temp/
+greedy_game/Library/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+greedy_game/ExportedObj/
+greedy_game/obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
