@@ -2,12 +2,11 @@
 /*
 /*/
 
-/Library/
-
 !.gitignore
 !.gitattributes
 !README.md
 
 # Whitelisted directories/files
-!/ProjectSettings/
-!/Assets/                # Add Assets folder
+!/greedy_game/ProjectSettings/
+!/greedy_game/Assets/                # Add Assets folder
+/greedy_game/Library/ 
