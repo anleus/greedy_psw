@@ -8,16 +8,22 @@ public class PlayerStats : MonoBehaviour
     public static int MaxLifes = 5;
     public static int MaxHealth = 100;
 
-
     public int lifes { get; private set; }
     public int calories { get; private set; }
     public int health { get; private set; }
+
+    public GameObject myPrefab;
+
+    private GameObject Player;
+
 
     void Awake()
     {
         lifes = MaxLifes;
         health = MaxHealth;
         calories = 0;
+
+        Player = gameObject;
     }
 
     void Update()
@@ -26,9 +32,15 @@ public class PlayerStats : MonoBehaviour
     }
 
     //Health Functions
-    public void ReduceHealth(int amount)
+    public void ReduceHealth(int amount, bool withAnimation = true)
     {
+        Debug.Log("Health reduced by " + amount);
         health = Mathf.Max(0, health - amount); // Reducir la vida pero no por debajo de cero.
+
+        if (health == 0)
+        {
+            ReduceLifes(1);
+        }
     }
 
     public void IncreaseHealth(int amount)
@@ -38,9 +50,18 @@ public class PlayerStats : MonoBehaviour
 
 
     //Lifes Functions
-    public void ReduceLifes(int amount)
+    public void ReduceLifes(int amount, bool withAnimation = true)
     {
+        Debug.Log("Life reduced by " + amount);
         lifes = Mathf.Max(0, lifes - amount); // Reducir las lifes pero no por debajo de cero.
+
+        if (withAnimation)
+            GameManager.CreateEffect(myPrefab, new Vector3(0,0,0), Player.transform);
+        
+        if (lifes == 0)
+        {
+            Debug.Log("HAS MUERTO");
+        }
     }
 
     public void IncreaseLifes(int amount)

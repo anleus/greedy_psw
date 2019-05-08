@@ -18,16 +18,9 @@ public class BaseEntity : MonoBehaviour
     {
         Debug.Log("OnCollision Padre");
         //Hacer aparecer los efectos
-        createEffect(transform.position);
-        createEffect(col.gameObject.transform.position);
+        GameManager.CreateEffect(effect, transform.position);
+        GameManager.CreateEffect(effect, col.gameObject.transform.position);
         Destroy(gameObject); // Destruir la manzana
     }
 
-    protected GameObject createEffect(Vector3 position)
-    {
-        GameObject particleEffect = Instantiate(effect, position, Quaternion.identity);
-        particleEffect.layer = 8; // Particles
-
-        return particleEffect;
-    }
 }

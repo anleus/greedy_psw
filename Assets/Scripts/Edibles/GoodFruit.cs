@@ -9,8 +9,8 @@ public class GoodFruit : BaseEntity
     protected override void OnCollision(Collision2D col)
     {
         //Hacer aparecer los efectos
-        createEffect(transform.position);
-        createEffect(col.gameObject.transform.position);
+        GameManager.CreateEffect(effect, transform.position);
+        GameManager.CreateEffect(effect, col.gameObject.transform.position);
         Destroy(gameObject); // Destruir la entidad
 
 

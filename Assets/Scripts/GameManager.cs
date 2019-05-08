@@ -13,6 +13,25 @@ public class GameManager : MonoBehaviour
     float nextUpdate = 0f;
     float currentTime = 0f;
 
+
+    //Para crear particle systems se usa esto
+    public static GameObject CreateEffect(GameObject effect, Vector3 position, Transform parent = null)
+    {
+        Vector3 effectPosition = (parent != null) ? parent.transform.position : position;
+
+        GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity);
+        particleSystem.layer = 8; // Particles
+
+        Debug.Log(parent);
+        if (parent != null)
+        {
+            particleSystem.transform.parent = parent;
+            particleSystem.transform.position = position;
+        }
+
+        return particleSystem;
+    }
+
     void Awake()
     {
         MakeSingleton();
@@ -39,4 +58,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }      
     }
+
+
+
+    
 }
