@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthUI : MonoBehaviour
 {
@@ -17,4 +18,5 @@ public class HealthUI : MonoBehaviour
     {
         healthText.text = "Salud: " + GameManager.instance.playerStats.health + "%";
     }
+
 }

@@ -17,4 +17,19 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Has salido del juego");
         Application.Quit();
     }
+
+    public void Dep()
+    {
+        StartCoroutine(Death());            //No funciona
+    }
+
+    IEnumerator Death()
+    {
+        Debug.Log("Starting coroutine");
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Finished waiting for seconds, changing scene to GAME OVER");
+        SceneManager.LoadScene(2);
+        //SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

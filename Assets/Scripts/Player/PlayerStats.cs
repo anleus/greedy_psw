@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerStats : MonoBehaviour
 
     private GameObject Player;
 
+    private MainMenu main;
+
 
     void Awake()
     {
@@ -24,11 +27,17 @@ public class PlayerStats : MonoBehaviour
         calories = 0;
 
         Player = gameObject;
+        //main = GetComponent<MainMenu>();
     }
 
     void Update()
     {
- 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("R");
+            //StartCoroutine(Death());
+            Player.SetActive(false);
+        }
     }
 
     //Health Functions
@@ -39,6 +48,7 @@ public class PlayerStats : MonoBehaviour
 
         if (health == 0)
         {
+            Player.transform.position = new Vector3(0.5f,0.5f,0f);
             ReduceLifes(1);
         }
     }
@@ -60,7 +70,9 @@ public class PlayerStats : MonoBehaviour
         
         if (lifes == 0)
         {
+            Player.SetActive(false);
             Debug.Log("HAS MUERTO");
+            main.Dep();                 //No funciona
         }
     }
 
