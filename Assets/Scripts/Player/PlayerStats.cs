@@ -18,8 +18,6 @@ public class PlayerStats : MonoBehaviour
         lifes = MaxLifes;
         health = MaxHealth;
         calories = 0;
-
-        Debug.Log("init stats");
     }
 
     void Update()

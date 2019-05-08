@@ -4,46 +4,30 @@ using UnityEngine;
 
 public class BaseEntity : MonoBehaviour
 {
-    ParticleSystem particles;
     public GameObject effect;
-
-    public int damage = 35;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Player") {
-
-            //Hacer aparecer los efectos
-            createEffect(transform.position);
-            createEffect(col.gameObject.transform.position);
-            Destroy(gameObject); // Destruir la manzana
-
-
-            ReduceLife();
-        }
+        if (col.gameObject.tag == "Player")
+            OnCollision(col);
     }
 
-    private GameObject createEffect(Vector3 position)
+
+    //  PARA MODIFICAR LAS COLISIONES EN CLASES HIJAS, SOBREESCRIBIR ESTE METODO EN ESTAS.
+    protected virtual void OnCollision(Collision2D col)
+    {
+        Debug.Log("OnCollision Padre");
+        //Hacer aparecer los efectos
+        createEffect(transform.position);
+        createEffect(col.gameObject.transform.position);
+        Destroy(gameObject); // Destruir la manzana
+    }
+
+    protected GameObject createEffect(Vector3 position)
     {
         GameObject particleEffect = Instantiate(effect, position, Quaternion.identity);
+        particleEffect.layer = 8; // Particles
 
         return particleEffect;
-    }
-
-    private void ReduceLife() 
-    {
-        GameManager.instance.playerStats.ReduceHealth(damage);
     }
 }
