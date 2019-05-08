@@ -20,8 +20,6 @@ public class Shadow : MonoBehaviour
 
         shadowRenderer.sortingLayerName = parentRenderer.sortingLayerName;
         shadowRenderer.sortingOrder = parentRenderer.sortingOrder - 1;
-
-        Debug.Log(shadowRenderer.sortingOrder);
     }
 
     // Update is called once per frame

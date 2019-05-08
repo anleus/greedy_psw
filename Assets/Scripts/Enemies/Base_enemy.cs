@@ -18,10 +18,10 @@ public class Base_enemy : Enemy {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "greedy")
+        if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Stats>().lifes -= damageInflicted;
-            Debug.Log("joder que daño");
+            //collision.gameObject.GetComponent<PlayerStats>().ReduceHealth(PlayerStats.MaxHealth); // Reducimos toda su vida, por lo que le matamos
+            collision.gameObject.GetComponent<PlayerStats>().ReduceHealth(5);
         }
     }
 }
