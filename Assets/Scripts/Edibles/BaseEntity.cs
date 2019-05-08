@@ -7,6 +7,8 @@ public class BaseEntity : MonoBehaviour
     ParticleSystem particles;
     public GameObject effect;
 
+    public int damage = 35;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +23,27 @@ public class BaseEntity : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject) {
-            Instantiate(effect, transform.position, Quaternion.identity);
-            Instantiate(effect, col.gameObject.transform.position, Quaternion.identity);
-            //Destroy(col.gameObject);
-            Destroy(gameObject);
-            ReduceLife(col.gameObject);
+        if(col.gameObject.tag == "Player") {
+
+            //Hacer aparecer los efectos
+            createEffect(transform.position);
+            createEffect(col.gameObject.transform.position);
+            Destroy(gameObject); // Destruir la manzana
+
+
+            ReduceLife();
         }
     }
 
-    private void ReduceLife(GameObject monkey) 
+    private GameObject createEffect(Vector3 position)
     {
-        Stats stats = monkey.GetComponent<Stats>();
-        stats.ReduceHealth(50);
+        GameObject particleEffect = Instantiate(effect, position, Quaternion.identity);
+
+        return particleEffect;
+    }
+
+    private void ReduceLife() 
+    {
+        GameManager.instance.playerStats.ReduceHealth(damage);
     }
 }

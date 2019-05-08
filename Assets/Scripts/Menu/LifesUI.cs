@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CaloriesUI : MonoBehaviour
+public class LifesUI : MonoBehaviour
 {
-    Text caloriesText;
+    Text lifesText;
     // Start is called before the first frame update
     void Start()
     {
-        caloriesText = GetComponent<Text>();
+        lifesText = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        caloriesText.text = "Calorias: " + GameManager.instance.playerStats.calories;
+        lifesText.text = "Vidas: " + GameManager.instance.playerStats.lifes;
     }
 }

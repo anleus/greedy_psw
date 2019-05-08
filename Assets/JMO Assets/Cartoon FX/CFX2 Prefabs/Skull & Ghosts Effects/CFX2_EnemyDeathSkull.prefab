@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Inner Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4632,7 +4632,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 19800002}
   - component: {fileID: 19900002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9254,7 +9254,7 @@ GameObject:
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
   - component: {fileID: 11400004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFX2_EnemyDeathSkull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13937,7 +13937,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 19800006}
   - component: {fileID: 19900006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18585,7 +18585,7 @@ GameObject:
   - component: {fileID: 400008}
   - component: {fileID: 10800000}
   - component: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
