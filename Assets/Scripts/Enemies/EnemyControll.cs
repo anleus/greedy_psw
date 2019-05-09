@@ -16,12 +16,17 @@ public class EnemyControll : MonoBehaviour
     private Waypoint[] puntos;
 
     private int numPuntos;
-    
+
+    private JoseAnimator jose;
+    public Vector2 dir;
+
     void Start() {
 
         CargarPuntos();
 
         transform.position = waypoints[waypointIndex].transform.position;
+
+        jose = GetComponent<JoseAnimator>();
 
     }
     
@@ -31,9 +36,18 @@ public class EnemyControll : MonoBehaviour
     }
 
     void Move() {
-        transform.position = Vector2.MoveTowards(transform.position,
-                                               waypoints[waypointIndex].transform.position,
-                                               moveSpeed * Time.deltaTime);
+        Vector2 ini = transform.position;
+        Vector2 fin = waypoints[waypointIndex].transform.position;
+
+        dir = fin - ini;
+        dir.Normalize();
+
+        jose.Facing(dir);
+
+        Debug.Log(dir);
+
+        transform.position = Vector2.MoveTowards(ini, fin, moveSpeed * Time.deltaTime);
+
         if (transform.position == waypoints[waypointIndex].transform.position) {
             waypointIndex += 1;
         }

@@ -214,12 +214,13 @@ GameObject:
   m_Component:
   - component: {fileID: 376926354}
   - component: {fileID: 376926353}
-  - component: {fileID: 376926349}
-  - component: {fileID: 376926352}
   - component: {fileID: 376926351}
   - component: {fileID: 376926350}
+  - component: {fileID: 376926349}
+  - component: {fileID: 376926352}
   - component: {fileID: 376926355}
   - component: {fileID: 376926356}
+  - component: {fileID: 376926357}
   m_Layer: 0
   m_Name: "Jos\xE9"
   m_TagString: Untagged
@@ -242,6 +243,7 @@ MonoBehaviour:
   waypoints: []
   moveSpeed: 5
   path: {fileID: 1150722013}
+  dir: {x: 0, y: 0}
 --- !u!50 &376926350
 Rigidbody2D:
   serializedVersion: 4
@@ -386,6 +388,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &376926357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376926348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c08c9d1e1b20244c84c1beb2fa6a847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &476097592
 GameObject:
   m_ObjectHideFlags: 0
