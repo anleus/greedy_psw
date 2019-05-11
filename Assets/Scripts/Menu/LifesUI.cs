@@ -28,7 +28,6 @@ public class LifesUI : MonoBehaviour
 
         for (int i = 0; i < lifes.Count; i++)
         {
-            Debug.Log("i : " + i + "  ,  lifes: " + GameManager.instance.playerStats.lifes);
             if (GameManager.instance.playerStats.lifes > i)
                 lifes[i].color = new Color32(255, 255, 225, 255);
             else

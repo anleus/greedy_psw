@@ -44,7 +44,7 @@ public class EnemyControll : MonoBehaviour
 
         jose.Facing(dir);
 
-        Debug.Log(dir);
+       // Debug.Log(dir);
 
         transform.position = Vector2.MoveTowards(ini, fin, moveSpeed * Time.deltaTime);
 
