@@ -10,7 +10,7 @@ public class BadEntityHP : BaseEntity
     {
         //Hacer aparecer los efectos
         GameManager.CreateEffect(effect, transform.position);
-        GameManager.CreateEffect(effect, col.gameObject.transform.position);
+        //GameManager.CreateEffect(effect, col.gameObject.transform.position);
         Destroy(gameObject); // Destruir la entidad
 
 

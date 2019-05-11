@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     // (la principal, la de game over, etc)
     public void PlayGame()
     {
-        SceneManager.LoadScene("Scenes/Map01");
+        SceneManager.LoadScene("Scenes/Map02");
     }
 
      public void QuitGame()

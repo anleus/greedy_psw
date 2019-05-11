@@ -22,17 +22,17 @@ public class JoseAnimator : MonoBehaviour
 
     public void Facing(Vector2 dir)
     {
-        Debug.Log(dir);
+        //Debug.Log(dir);
         if (dir.x < 0 && dir.y == 0)
         {
-            Debug.Log("FacingLeft");
+            //Debug.Log("FacingLeft");
             jose.SetBool("FacingLeft", true);
             jose.SetBool("FacingRight", false);
             jose.SetBool("FacingUp", false);
             jose.SetBool("FacingDown", false);
         } else if (dir.x > 0 && dir.y == 0)
         {
-            Debug.Log("FacingRight");
+           // Debug.Log("FacingRight");
             jose.SetBool("FacingLeft", false);
             jose.SetBool("FacingRight", true);
             jose.SetBool("FacingUp", false);
@@ -40,7 +40,7 @@ public class JoseAnimator : MonoBehaviour
         }
         else if (dir.y > 0 && dir.x == 0)
         {
-            Debug.Log("FacingUp");
+            //Debug.Log("FacingUp");
             jose.SetBool("FacingLeft", false);
             jose.SetBool("FacingRight", false);
             jose.SetBool("FacingUp", true);
@@ -48,7 +48,7 @@ public class JoseAnimator : MonoBehaviour
         }
         else if (dir.y > 0 && dir.x == 0)
         {
-            Debug.Log("FacingDown");
+            //Debug.Log("FacingDown");
             jose.SetBool("FacingLeft", false);
             jose.SetBool("FacingRight", false);
             jose.SetBool("FacingUp", false);

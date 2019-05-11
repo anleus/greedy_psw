@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
             particleSystem.transform.position = position;
         }
 
+        Debug.Log("Creatin particles: " + effect.name + " in: " + effectPosition);
+
         return particleSystem;
     }
 

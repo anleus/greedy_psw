@@ -17,8 +17,6 @@ public class PlayerStats : MonoBehaviour
 
     private GameObject Player;
 
-    private MainMenu main;
-
 
     void Awake()
     {
@@ -27,7 +25,6 @@ public class PlayerStats : MonoBehaviour
         calories = 0;
 
         Player = gameObject;
-        //main = GetComponent<MainMenu>();
     }
 
     void Update()
@@ -72,7 +69,6 @@ public class PlayerStats : MonoBehaviour
         {
             Player.SetActive(false);
             Debug.Log("HAS MUERTO");
-            main.Dep();                 //No funciona
         }
     }
 
