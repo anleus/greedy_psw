@@ -120,13 +120,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-
-        if (currentTime < nextUpdate) return;
-        nextUpdate += 2f;
-
-        if (state == CurrentState.PLAYING)
-            getPlayerStats().IncreaseCalories(15);
     }
 
     private void startSpawningLifes()
