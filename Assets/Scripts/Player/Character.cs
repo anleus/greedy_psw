@@ -33,6 +33,7 @@ public abstract class Character : MonoBehaviour
         animator.SetFloat("x", xValue);
         animator.SetFloat("y", direction.y);
 
-        animator.SetBool("stop", direction == Vector2.zero);
+        // animator.SetBool("stop", (rigidBody.velocity == Vector2.zero));
+        animator.SetBool("stop", (Input.anyKey == false) && (direction == Vector2.zero));
     }
 }

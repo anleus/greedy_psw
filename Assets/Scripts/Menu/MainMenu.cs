@@ -18,18 +18,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Dep()
+    public IEnumerator GameOver()
     {
-        StartCoroutine(Death());            //No funciona
-    }
-
-    IEnumerator Death()
-    {
-        Debug.Log("Starting coroutine");
+        Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
         yield return new WaitForSeconds(2f);
-        Debug.Log("Finished waiting for seconds, changing scene to GAME OVER");
+        Debug.Log("Switching...");
         SceneManager.LoadScene(2);
-        //SceneManager.LoadScene("GameOver");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
