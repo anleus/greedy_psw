@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     float nextUpdate = 0f;
     float currentTime = 0f;
+    public Animator anim;
 
 
     //Para crear particle systems se usa esto
@@ -126,11 +127,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        // anim.SetTrigger("gameOver");
-        Invoke("ChangeToGameOver", 2f);
-        //Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
-        //StartCoroutine("waitTwoSeconds");
-        //Debug.Log("Switching...");
+        anim.SetTrigger("gameOver");
+        Invoke("ChangeToGameOver", 1f);
     }
 
     private void ChangeToGameOver()
