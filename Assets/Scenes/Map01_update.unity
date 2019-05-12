@@ -11127,6 +11127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb0c6cc28b815f42a3b44631a04d500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LifeSpawnCooldown: 1.35
   playerObject: {fileID: 2022855624}
   playerStats: {fileID: 0}
 --- !u!4 &972011735

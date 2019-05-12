@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+<<<<<<< HEAD
     // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
     public GameObject playerObject; 
+=======
+    public float LifeSpawnCooldown;
+    public GameObject playerObject; // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono)
+>>>>>>> 56b7d99d3d34a9d975640ee6db419e0bf90ffe35
 
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats; 
@@ -72,11 +77,15 @@ public class GameManager : MonoBehaviour
     // Para spawnear una vida
     public GameObject spawnLife()
     {
+        Debug.Log("Spawning Life");
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
         GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+        Debug.Log("spawnpoint: " + spawnpoint);
 
 
-        GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.LifeEntityPrefab, spawnpoint.transform.position);
+        Debug.Log("prefab");
+        Debug.Log(AssetManager.instance.NoVa);
+        GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.NoVa, spawnpoint.transform.position);
         //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
         
         return lifeEntity;
@@ -87,7 +96,7 @@ public class GameManager : MonoBehaviour
         MakeSingleton();
         playerStats = playerObject.GetComponent<PlayerStats>();
 
-        //startSpawningLifes();
+        Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
 
     private void Update()
@@ -103,7 +112,7 @@ public class GameManager : MonoBehaviour
     private void startSpawningLifes()
     {
         spawnLife();
-        Invoke("startSpawningLifes", 2f);
+        Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
 
     private void MakeSingleton()
