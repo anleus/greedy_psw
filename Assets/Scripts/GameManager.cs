@@ -141,7 +141,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //anim.SetTrigger("gameOver");
+        //Si no os funciona, coged el animator del Canvas que tiene BlackFade
+        //y arrastradlo a GameManager
+        anim.SetTrigger("gameOver");
         Invoke("ChangeToGameOver", 1f);
     }
 
@@ -155,12 +157,25 @@ public class GameManager : MonoBehaviour
     {
         GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
         realFuit.onEat(getPlayer());
-        // Destroy(fruit);
         GameObject[] fruitsList = GameObject.FindGameObjectsWithTag("Eatable");
 
         if (fruitsList.Length == 1)
         {
-            GameOver();
+            Win();
         }
+    }
+
+    public void Win()
+    {
+        //Si no os funciona, coged el animator del Canvas que tiene BlackFade
+        //y arrastradlo a GameManager
+        anim.SetTrigger("gameOver");
+        Invoke("ChangeToWin", 1f);
+    }
+
+    private void ChangeToWin()
+    {
+        SceneManager.LoadScene("Scenes/YouWin");
+        state = CurrentState.WATCHING_UI;
     }
 }
