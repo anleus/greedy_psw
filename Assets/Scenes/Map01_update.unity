@@ -11129,7 +11129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2022855624}
   LifeSpawnCooldown: 15
+  state: 0
   playerStats: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!4 &972011735
 Transform:
   m_ObjectHideFlags: 0
@@ -11677,7 +11679,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.35893953}
@@ -11991,12 +11993,12 @@ PrefabInstance:
     - target: {fileID: 6707531661150103765, guid: 5b9a785aef1aa0647b3a1940121bf670,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.28
+      value: -3.17
       objectReference: {fileID: 0}
     - target: {fileID: 6707531661150103765, guid: 5b9a785aef1aa0647b3a1940121bf670,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.99
+      value: -5.18
       objectReference: {fileID: 0}
     - target: {fileID: 6707531661150103765, guid: 5b9a785aef1aa0647b3a1940121bf670,
         type: 3}

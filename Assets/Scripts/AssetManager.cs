@@ -12,6 +12,7 @@ public class AssetManager : MonoBehaviour
     public GameObject PoofEffect;
     public GameObject StarEffect;
     public GameObject ResurrectionLightEffect;
+    public GameObject StarHitEffect;
 
 
 

@@ -21,7 +21,10 @@ public class Base_enemy : Enemy {
         if (collision.gameObject.tag == "Player")
         {
             //collision.gameObject.GetComponent<PlayerStats>().ReduceHealth(PlayerStats.MaxHealth); // Reducimos toda su vida, por lo que le matamos
-            collision.gameObject.GetComponent<PlayerStats>().ReduceHealth(5);
+            collision.gameObject.GetComponent<PlayerStats>().ReduceHealth(PlayerStats.MaxHealth);
+
+            Vector3 effectPosition = transform.position + new Vector3(0f, 1f, 0f);
+            GameManager.CreateEffect(AssetManager.instance.StarHitEffect, effectPosition);
         }
     }
 }
