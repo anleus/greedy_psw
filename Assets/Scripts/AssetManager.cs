@@ -16,7 +16,6 @@ public class AssetManager : MonoBehaviour
 
 
     public GameObject LifeEntityPrefab;
-    public GameObject NoVa;
 
     public GameObject[] fruitsPrefabs;
     public GameObject[] badEntitiesPrefabs;

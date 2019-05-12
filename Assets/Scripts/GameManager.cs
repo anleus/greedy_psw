@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerObject; 
     public float LifeSpawnCooldown;
 
+
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats; 
 
@@ -81,7 +82,8 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("prefab");
         //Debug.Log(AssetManager.instance.NoVa);
-        GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.NoVa, spawnpoint.transform.position);
+        Debug.Log(AssetManager.instance.LifeEntityPrefab);
+        GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.LifeEntityPrefab, spawnpoint.transform.position);
         //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
         
         return lifeEntity;
