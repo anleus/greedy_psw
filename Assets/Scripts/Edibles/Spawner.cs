@@ -11,19 +11,29 @@ public class Spawner : MonoBehaviour
 
 
     public GameObject vida;
+    public GameObject effect;
+
     private float time;
+
     public Transform[] spawnpoints;
+
+    private bool hasSpawned = false;
 
     void Start()
     {
         time = Random.Range(7f, 15f);
         Debug.Log("Next life coming in: " + time);
-        Invoke("spawnLife", time);
+        if (!hasSpawned)
+        {
+            Invoke("spawnLife", time);
+        }
     }
 
     public void spawnLife()
     {
+        hasSpawned = true;
         int sp = Random.Range(0, spawnpoints.Length);
+        GameManager.CreateEffect(effect, spawnpoints[sp].position);
         Instantiate(vida, spawnpoints[sp].position, Quaternion.identity);
     }
 

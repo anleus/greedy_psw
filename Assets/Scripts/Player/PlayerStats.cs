@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
 
     private GameObject Player;
 
+    private MainMenu main;
+
 
     void Awake()
     {
@@ -29,12 +31,6 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("R");
-            //StartCoroutine(Death());
-            Player.SetActive(false);
-        }
     }
 
     //Health Functions
@@ -59,7 +55,7 @@ public class PlayerStats : MonoBehaviour
     //Lifes Functions
     public void ReduceLifes(int amount, bool withAnimation = true)
     {
-        Debug.Log("Life reduced by " + amount);
+        Debug.Log("Life reduced by " + amount + "\nRemaining lives: " + lifes);
         lifes = Mathf.Max(0, lifes - amount); // Reducir las lifes pero no por debajo de cero.
 
         if (withAnimation)
@@ -68,6 +64,7 @@ public class PlayerStats : MonoBehaviour
         if (lifes == 0)
         {
             Player.SetActive(false);
+            //main.GameOver();          -- No sé cómo cambiar de escena, no me deja si el player está inactivo
             Debug.Log("HAS MUERTO");
         }
     }
