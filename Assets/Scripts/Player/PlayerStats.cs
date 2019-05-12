@@ -16,7 +16,6 @@ public class PlayerStats : MonoBehaviour
     public GameObject LoseLifeEffect;
 
     private GameObject Player;
-
     private MainMenu main;
 
 
@@ -27,6 +26,8 @@ public class PlayerStats : MonoBehaviour
         calories = 0;
 
         Player = gameObject;
+        main = GetComponent<MainMenu>();
+
     }
 
     void Update()
@@ -67,6 +68,8 @@ public class PlayerStats : MonoBehaviour
             Player.SetActive(false);
             //main.GameOver();          -- No sé cómo cambiar de escena, no me deja si el player está inactivo
             Debug.Log("HAS MUERTO");
+            //GameManager.instance.MainMenu.GameOver();
+            main.GameOver();
         }
     }
 

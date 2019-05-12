@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public Animator anim;
     // Nota: este script se empleará para todas las pantallas que tengan menu
     // (la principal, la de game over, etc)
     public void PlayGame()
@@ -18,11 +19,12 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public IEnumerator GameOver()
+    public void GameOver()
     {
-        Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
-        yield return new WaitForSeconds(2f);
-        Debug.Log("Switching...");
+        anim.SetTrigger("gameOver");
+        //Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
+        //yield return new WaitForSeconds(2f);
+        //Debug.Log("Switching...");
         SceneManager.LoadScene(2);
     }
 }
