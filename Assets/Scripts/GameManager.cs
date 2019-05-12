@@ -6,13 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-<<<<<<< HEAD
     // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
     public GameObject playerObject; 
-=======
     public float LifeSpawnCooldown;
-    public GameObject playerObject; // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono)
->>>>>>> 56b7d99d3d34a9d975640ee6db419e0bf90ffe35
 
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats; 
@@ -84,7 +80,7 @@ public class GameManager : MonoBehaviour
 
 
         Debug.Log("prefab");
-        Debug.Log(AssetManager.instance.NoVa);
+        //Debug.Log(AssetManager.instance.NoVa);
         GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.NoVa, spawnpoint.transform.position);
         //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
         
