@@ -175,6 +175,7 @@ public class GameManager : MonoBehaviour
 
     private void ChangeToWin()
     {
+        DontDestroyOnLoad(playerObject);
         SceneManager.LoadScene("Scenes/YouWin");
         state = CurrentState.WATCHING_UI;
     }
