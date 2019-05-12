@@ -143,5 +143,9 @@ public class GameManager : MonoBehaviour
         GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
         realFuit.onEat(playerObject);
         // Destroy(fruit);
+        if(GameObject.FindGameObjectsWithTag("Eatable").Length == 0)
+        {
+            GameOver();
+        }
     }
 }
