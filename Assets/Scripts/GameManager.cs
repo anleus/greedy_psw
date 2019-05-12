@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        anim.SetTrigger("gameOver");
+        //anim.SetTrigger("gameOver");
         Invoke("ChangeToGameOver", 1f);
     }
 
@@ -164,17 +164,8 @@ public class GameManager : MonoBehaviour
         realFuit.onEat(getPlayer());
         // Destroy(fruit);
         GameObject[] fruitsList = GameObject.FindGameObjectsWithTag("Eatable");
-        int numOfFruits = 4;
 
-        for(int i = 0; i < fruitsList.Length; i++)
-        {
-            if(fruitsList[i] == null)
-            {
-                numOfFruits--;
-            }
-        }
-
-        if(numOfFruits == 0)
+        if (fruitsList.Length == 1)
         {
             GameOver();
         }
