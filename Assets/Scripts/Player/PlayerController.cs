@@ -47,18 +47,12 @@ public class PlayerController : Character
         {
             direction += Vector2.right;
         }
+
+        if(Input.GetKey(KeyCode.C)) 
+        {
+            
+        }
     }
-
-    /*
-    public override void AnimCharacter(Vector2 direction)
-    {
-        float xValue = (direction.y != 0) ? 0 : direction.x;
-        animator.SetFloat("x", xValue);
-        animator.SetFloat("y", direction.y);
-
-        animator.SetBool("stop", Input.anyKey == false);
-    }    
-     */
 
 
 }
