@@ -141,7 +141,18 @@ public class GameManager : MonoBehaviour
         GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
         realFuit.onEat(playerObject);
         // Destroy(fruit);
-        if(GameObject.FindGameObjectsWithTag("Eatable").Length == 0)
+        GameObject[] fruitsList = GameObject.FindGameObjectsWithTag("Eatable");
+        int numOfFruits = 4;
+
+        for(int i = 0; i < fruitsList.Length; i++)
+        {
+            if(fruitsList[i] == null)
+            {
+                numOfFruits--;
+            }
+        }
+
+        if(numOfFruits == 0)
         {
             GameOver();
         }
