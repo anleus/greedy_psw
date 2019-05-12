@@ -36,8 +36,8 @@ public class PlayerStats : MonoBehaviour
     //Health Functions
     public void ReduceHealth(int amount, bool withAnimation = true)
     {
-        Debug.Log("Health reduced by " + amount);
         health = Mathf.Max(0, health - amount); // Reducir la vida pero no por debajo de cero.
+        Debug.Log("Health reduced by " + amount + "\nRemaining lives: " + lifes);
 
         if (health == 0)
         {
@@ -48,15 +48,15 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseHealth(int amount)
     {
-        health = Mathf.Max(MaxHealth, health + amount); // Aumentar la vida pero no por encima de MaxHealth.
+        health = Mathf.Min(MaxHealth, health + amount); // Aumentar la vida pero no por encima de MaxHealth.
     }
 
 
     //Lifes Functions
     public void ReduceLifes(int amount, bool withAnimation = true)
     {
-        Debug.Log("Life reduced by " + amount + "\nRemaining lives: " + lifes);
         lifes = Mathf.Max(0, lifes - amount); // Reducir las lifes pero no por debajo de cero.
+        Debug.Log("Life reduced by " + amount + "\nRemaining lives: " + lifes);
 
         if (withAnimation)
             GameManager.CreateEffect(myPrefab, new Vector3(0,0,0), Player.transform);
@@ -71,7 +71,8 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseLifes(int amount)
     {
-        lifes = Mathf.Max(MaxLifes, lifes + amount); // Aumentar las lifes pero no por encima de MaxLifes.
+        lifes = Mathf.Min(MaxLifes, lifes + amount); // Aumentar las lifes pero no por encima de MaxLifes.
+        Debug.Log("Number of lifes increased: " + lifes);
     }
 
 
@@ -79,6 +80,7 @@ public class PlayerStats : MonoBehaviour
     public void ReduceCalories(int amount)
     {
         calories = Mathf.Max(0, calories - amount); // Reducir las calories pero no por debajo de cero.
+
     }
 
     public void IncreaseCalories(int amount)
