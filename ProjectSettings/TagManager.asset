@@ -9,6 +9,7 @@ TagManager:
   - WayPoint
   - SpawnPoint
   - EntitySpawnPoint
+  - Eatable
   layers:
   - Default
   - TransparentFX

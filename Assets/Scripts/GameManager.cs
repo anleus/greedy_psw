@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameObject playerObject; // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono)
+
+    public GameObject playerObject; 
+    public float LifeSpawnCooldown;
 
 
-    public PlayerStats playerStats; // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
+    // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
+    public PlayerStats playerStats; 
 
     float nextUpdate = 0f;
     float currentTime = 0f;
@@ -72,10 +75,14 @@ public class GameManager : MonoBehaviour
     // Para spawnear una vida
     public GameObject spawnLife()
     {
+        Debug.Log("Spawning Life");
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
         GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+        Debug.Log("spawnpoint: " + spawnpoint);
 
 
+        Debug.Log("prefab");
+        Debug.Log(AssetManager.instance.LifeEntityPrefab);
         GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.LifeEntityPrefab, spawnpoint.transform.position);
         //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
         
@@ -87,7 +94,7 @@ public class GameManager : MonoBehaviour
         MakeSingleton();
         playerStats = playerObject.GetComponent<PlayerStats>();
 
-        //startSpawningLifes();
+        Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
 
     private void Update()
@@ -103,7 +110,7 @@ public class GameManager : MonoBehaviour
     private void startSpawningLifes()
     {
         spawnLife();
-        Invoke("startSpawningLifes", 2f);
+        Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
 
     private void MakeSingleton()
@@ -127,4 +134,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/GameOver");
     }    
+
+    public void EatFruit(GameObject fruit)
+    {
+        GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
+        realFuit.onEat(playerObject);
+        // Destroy(fruit);
+    }
 }
