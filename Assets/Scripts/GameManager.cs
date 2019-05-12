@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity);
         particleSystem.layer = 8; // Particles
 
-        Debug.Log(parent);
+        //Debug.Log(parent);
         if (parent != null)
         {
             particleSystem.transform.parent = parent;
