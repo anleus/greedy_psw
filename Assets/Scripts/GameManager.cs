@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
         {
             particleSystem.transform.parent = parent;
             particleSystem.transform.position = position;
+
+            Debug.Log("SHOULD BE PARENT!");
         }
 
         Debug.Log("Creatin particles: " + effect.name + " in: " + effectPosition);
@@ -36,9 +38,7 @@ public class GameManager : MonoBehaviour
 
     public static GameObject CreateEntity(GameObject prefab, Vector3 position, Transform parent = null)
     {
-        Vector3 entityPosition = (parent != null) ? parent.transform.position : position;
-
-        GameObject entity = Instantiate(prefab, entityPosition, Quaternion.identity);
+        GameObject entity = Instantiate(prefab, position, Quaternion.identity);
 
         //Debug.Log(parent);
         if (parent != null)
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
             entity.transform.position = position;
         }
 
-        Debug.Log("Created Entity: " + prefab.name + " in: " + entityPosition);
+        Debug.Log("Created Entity: " + prefab.name + " in: " + position);
 
         return entity;
     }
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         currentTime += Time.deltaTime;
 
         if (currentTime < nextUpdate) return;
-        nextUpdate += 2f;
+        nextUpdate += 6f;
 
         playerStats.IncreaseCalories(15);
         spawnLife();
