@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
     public GameObject playerObject; 
     public float LifeSpawnCooldown;
 
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     float nextUpdate = 0f;
     float currentTime = 0f;
+    public Animator anim;
 
     
     //Para crear particle systems se usa esto
@@ -105,8 +106,7 @@ public class GameManager : MonoBehaviour
         GameObject spawnpoint = spawnPoints[Random.Range(0, length - 1)];
 
         GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.LifeEntityPrefab, spawnpoint.transform.position);
-        //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
-        
+
         return lifeEntity;
     }
 
@@ -148,11 +148,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        // anim.SetTrigger("gameOver");
-        Invoke("ChangeToGameOver", 2f);
-        //Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
-        //StartCoroutine("waitTwoSeconds");
-        //Debug.Log("Switching...");
+        anim.SetTrigger("gameOver");
+        Invoke("ChangeToGameOver", 1f);
     }
 
     private void ChangeToGameOver()
@@ -166,5 +163,20 @@ public class GameManager : MonoBehaviour
         GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
         realFuit.onEat(getPlayer());
         // Destroy(fruit);
+        GameObject[] fruitsList = GameObject.FindGameObjectsWithTag("Eatable");
+        int numOfFruits = 4;
+
+        for(int i = 0; i < fruitsList.Length; i++)
+        {
+            if(fruitsList[i] == null)
+            {
+                numOfFruits--;
+            }
+        }
+
+        if(numOfFruits == 0)
+        {
+            GameOver();
+        }
     }
 }
