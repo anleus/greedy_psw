@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameObject playerObject; // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono)
+    // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
+    public GameObject playerObject; 
 
-
-    public PlayerStats playerStats; // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
+    // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
+    public PlayerStats playerStats; 
 
     float nextUpdate = 0f;
     float currentTime = 0f;
@@ -129,4 +130,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/GameOver");
     }    
+
+    public void EatFruit(GameObject fruit)
+    {
+        GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
+        realFuit.onEat(playerObject);
+        // Destroy(fruit);
+    }
 }

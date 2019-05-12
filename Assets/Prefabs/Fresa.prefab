@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2988974586089469277}
   m_Layer: 0
   m_Name: Fresa
-  m_TagString: Enemy
+  m_TagString: Eatable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,4 +225,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f877bba7b5abfc843abe8b6bf92fbc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  bonusCalories: 50

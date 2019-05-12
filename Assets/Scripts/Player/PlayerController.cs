@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : Character
 {
+
+    private bool eatAllowed;
+    private GameObject currentFuit;
+
     void Start () 
     {
         animator = GetComponent<Animator>();
@@ -39,11 +43,36 @@ public class PlayerController : Character
             direction += Vector2.right;
         }
 
-        if(Input.GetKey(KeyCode.C)) 
+        if(Input.GetKey(KeyCode.C) && eatAllowed) 
         {
-            
+            EatFruit();
         }
     }
 
+    private void EatFruit()
+    {
+        if(currentFuit != null)
+        {
+            GameManager.instance.EatFruit(currentFuit);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag.Equals("Eatable"))
+        {
+            currentFuit = collision.gameObject;
+            eatAllowed = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.Equals(currentFuit))
+        {
+            currentFuit = null;
+            eatAllowed = false;
+        }
+    }
 
 }
