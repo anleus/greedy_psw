@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        time = Random.Range(7f, 15f);
+        time = Random.Range(1f, 1f);
         Debug.Log("Next life coming in: " + time);
         if (!hasSpawned)
         {

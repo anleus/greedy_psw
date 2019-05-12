@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BaseEntity : MonoBehaviour
 {
-    public GameObject effect;
+    protected virtual void Start()
+    {
+                
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -16,11 +19,11 @@ public class BaseEntity : MonoBehaviour
     //  PARA MODIFICAR LAS COLISIONES EN CLASES HIJAS, SOBREESCRIBIR ESTE METODO EN ESTAS.
     protected virtual void OnCollision(Collision2D col)
     {
-        Debug.Log("OnCollision Padre");
+        Debug.Log("COLISION DE BASEENTITY. NO DEBERIA PASAR. ERROR.");
         //Hacer aparecer los efectos
-        GameManager.CreateEffect(effect, transform.position);
-        GameManager.CreateEffect(effect, col.gameObject.transform.position);
-        Destroy(gameObject); // Destruir la manzana
+       // GameManager.CreateEffect(effect, transform.position);
+        //GameManager.CreateEffect(effect, col.gameObject.transform.position);
+       // Destroy(gameObject); // Destruir la manzana
     }
 
 }

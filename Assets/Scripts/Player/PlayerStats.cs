@@ -13,8 +13,6 @@ public class PlayerStats : MonoBehaviour
     public int calories { get; private set; }
     public int health { get; private set; }
 
-    public GameObject LoseLifeEffect;
-
     private GameObject Player;
 
     private MainMenu main;
@@ -60,7 +58,7 @@ public class PlayerStats : MonoBehaviour
         lifes = Mathf.Max(0, lifes - amount); // Reducir las lifes pero no por debajo de cero.
 
         if (withAnimation)
-            GameManager.CreateEffect(LoseLifeEffect, new Vector3(0,0,0), Player.transform);
+            GameManager.CreateEffect(AssetManager.instance.BrokenHeartEffect, new Vector3(0,0,0), Player.transform);
         
         if (lifes == 0)
         {

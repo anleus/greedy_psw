@@ -34,6 +34,24 @@ public class GameManager : MonoBehaviour
         return particleSystem;
     }
 
+    public static GameObject CreateEntity(GameObject prefab, Vector3 position, Transform parent = null)
+    {
+        Vector3 entityPosition = (parent != null) ? parent.transform.position : position;
+
+        GameObject entity = Instantiate(prefab, entityPosition, Quaternion.identity);
+
+        //Debug.Log(parent);
+        if (parent != null)
+        {
+            entity.transform.parent = parent;
+            entity.transform.position = position;
+        }
+
+        Debug.Log("Created Entity: " + prefab.name + " in: " + entityPosition);
+
+        return entity;
+    }
+
     // Para spawnear al jugador
     public void spawnPlayer()
     {
@@ -44,6 +62,20 @@ public class GameManager : MonoBehaviour
 
         playerObject.transform.position = spawnpoint.transform.position;
         Debug.Log("PLAYER HAS BEEN SPAWNED");
+    }
+
+
+    // Para spawnear una vida
+    public GameObject spawnLife()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
+        GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+
+
+        GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.LifeEntityPrefab, spawnpoint.transform.position);
+        //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
+        
+        return lifeEntity;
     }
 
     void Awake()
@@ -60,6 +92,7 @@ public class GameManager : MonoBehaviour
         nextUpdate += 2f;
 
         playerStats.IncreaseCalories(15);
+        spawnLife();
     }
 
     private void MakeSingleton()
