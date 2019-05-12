@@ -10,21 +10,25 @@ public class MainMenu : MonoBehaviour
     // (la principal, la de game over, etc)
     public void PlayGame()
     {
-        SceneManager.LoadScene("Scenes/Map02");
+        SceneManager.LoadScene("Scenes/Map01_update");
     }
 
      public void QuitGame()
     {
-        Debug.Log("Has salido del juego");
         Application.Quit();
     }
 
     public void GameOver()
     {
         anim.SetTrigger("gameOver");
+        Invoke("ChangeToGameOver", 2f);
         //Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
-        //yield return new WaitForSeconds(2f);
+        //StartCoroutine("waitTwoSeconds");
         //Debug.Log("Switching...");
+    }
+
+    void ChangeToGameOver()
+    {
         SceneManager.LoadScene("Scenes/GameOver");
     }
 }

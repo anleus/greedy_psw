@@ -64,8 +64,9 @@ public class PlayerStats : MonoBehaviour
         if (lifes == 0)
         {
             Player.SetActive(false);
-            main.GameOver();          // No sé cómo cambiar de escena, no me deja si el player está inactivo
-            Debug.Log("HAS MUERTO");
+            // No sé cómo cambiar de escena, no me deja si el player está inactivo
+            main.GameOver();
+            //Debug.Log("HAS MUERTO");
             //GameManager.instance.MainMenu.GameOver();
             //main.GameOver();
         }
