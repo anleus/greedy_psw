@@ -38,7 +38,9 @@ public class GameManager : MonoBehaviour
 
     public static GameObject CreateEntity(GameObject prefab, Vector3 position, Transform parent = null)
     {
-        GameObject entity = Instantiate(prefab, position, Quaternion.identity);
+        Vector3 entityPosition = (parent != null) ? parent.transform.position : position;
+
+        GameObject entity = Instantiate(prefab, entityPosition, Quaternion.identity);
 
         //Debug.Log(parent);
         if (parent != null)
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
             entity.transform.position = position;
         }
 
-        Debug.Log("Created Entity: " + prefab.name + " in: " + position);
+        Debug.Log("Created Entity: " + prefab.name + " in: " + entityPosition);
 
         return entity;
     }
@@ -82,6 +84,8 @@ public class GameManager : MonoBehaviour
     {
         MakeSingleton();
         playerStats = playerObject.GetComponent<PlayerStats>();
+
+        //startSpawningLifes();
     }
 
     private void Update()
@@ -89,10 +93,15 @@ public class GameManager : MonoBehaviour
         currentTime += Time.deltaTime;
 
         if (currentTime < nextUpdate) return;
-        nextUpdate += 6f;
+        nextUpdate += 2f;
 
         playerStats.IncreaseCalories(15);
+    }
+
+    private void startSpawningLifes()
+    {
         spawnLife();
+        Invoke("startSpawningLifes", 2f);
     }
 
     private void MakeSingleton()
