@@ -15,6 +15,6 @@ public class ExtraLife : BaseEntity
         GameManager.CreateEffect(AssetManager.instance.HeartPickupEffect, col.gameObject.transform.position);
         Destroy(gameObject);
 
-        GameManager.instance.playerStats.IncreaseLifes(1);
+        GameManager.instance.getPlayerStats().IncreaseLifes(1);
     }
 }

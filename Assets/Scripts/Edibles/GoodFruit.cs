@@ -13,6 +13,6 @@ public class GoodFruit : BaseEntity
         GameManager.CreateEffect(AssetManager.instance.PoofEffect, player.transform.position);
         Destroy(gameObject); // Destruir la entidad
 
-        GameManager.instance.playerStats.IncreaseCalories(bonusCalories);
+        GameManager.instance.getPlayerStats().IncreaseCalories(bonusCalories);
     }
 }

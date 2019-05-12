@@ -15,6 +15,6 @@ public class CaloriesUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        caloriesText.text = "Calorias: " + GameManager.instance.playerStats.calories;
+        caloriesText.text = "Calorias: " + GameManager.instance.getPlayerStats().calories;
     }
 }

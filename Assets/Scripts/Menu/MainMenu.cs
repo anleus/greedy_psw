@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     // (la principal, la de game over, etc)
     public void PlayGame()
     {
+        if (GameManager.instance != null)
+            GameManager.instance.state = GameManager.CurrentState.PLAYING;
+
         SceneManager.LoadScene("Scenes/Map01_update");
     }
 

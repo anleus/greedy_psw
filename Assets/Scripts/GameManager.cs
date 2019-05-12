@@ -10,14 +10,20 @@ public class GameManager : MonoBehaviour
     public GameObject playerObject; 
     public float LifeSpawnCooldown;
 
+    public enum CurrentState
+    {
+        PLAYING = 1,
+        WATCHING_UI = 2,
+    }
 
+    public CurrentState state;
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats; 
 
     float nextUpdate = 0f;
     float currentTime = 0f;
 
-
+    
     //Para crear particle systems se usa esto
     public static GameObject CreateEffect(GameObject effect, Vector3 position, Transform parent = null)
     {
@@ -25,7 +31,7 @@ public class GameManager : MonoBehaviour
 
         GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity);
         particleSystem.layer = 8; // Particles
-
+            
         //Debug.Log(parent);
         if (parent != null)
         {
@@ -58,15 +64,31 @@ public class GameManager : MonoBehaviour
         return entity;
     }
 
+    public GameObject getPlayer()
+    {
+        if (playerObject == null)
+            return GameObject.FindGameObjectWithTag("Player");
+        else
+            return playerObject;
+    }
+
+    public PlayerStats getPlayerStats()
+    {
+        if (playerStats == null)
+            return getPlayer().GetComponent<PlayerStats>();
+        else
+            return playerStats;
+    }
+
     // Para spawnear al jugador
     public void spawnPlayer()
     {
-        playerStats.IncreaseHealth(PlayerStats.MaxHealth);
+        getPlayerStats().IncreaseHealth(PlayerStats.MaxHealth);
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
 
 
-        playerObject.transform.position = spawnpoint.transform.position;
+        getPlayer().transform.position = spawnpoint.transform.position;
         Debug.Log("PLAYER HAS BEEN SPAWNED");
     }
 
@@ -74,14 +96,14 @@ public class GameManager : MonoBehaviour
     // Para spawnear una vida
     public GameObject spawnLife()
     {
-        Debug.Log("Spawning Life");
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
-        GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
-        Debug.Log("spawnpoint: " + spawnpoint);
+        int length = spawnPoints.Length;
 
+        if (length == 0)
+            return null;
 
-        Debug.Log("prefab");
-        Debug.Log(AssetManager.instance.LifeEntityPrefab);
+        GameObject spawnpoint = spawnPoints[Random.Range(0, length - 1)];
+
         GameObject lifeEntity = GameManager.CreateEntity(AssetManager.instance.LifeEntityPrefab, spawnpoint.transform.position);
         //GameManager.CreateEffect(AssetManager.instance.ResurrectionLightEffect, spawnpoint.transform.position);
         
@@ -91,7 +113,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         MakeSingleton();
-        playerStats = playerObject.GetComponent<PlayerStats>();
+        playerStats = getPlayer().GetComponent<PlayerStats>();
 
         Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
@@ -103,7 +125,8 @@ public class GameManager : MonoBehaviour
         if (currentTime < nextUpdate) return;
         nextUpdate += 2f;
 
-        playerStats.IncreaseCalories(15);
+        if (state == CurrentState.PLAYING)
+            getPlayerStats().IncreaseCalories(15);
     }
 
     private void startSpawningLifes()
@@ -135,12 +158,13 @@ public class GameManager : MonoBehaviour
     private void ChangeToGameOver()
     {
         SceneManager.LoadScene("Scenes/GameOver");
+        state = CurrentState.WATCHING_UI;
     }    
 
     public void EatFruit(GameObject fruit)
     {
         GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
-        realFuit.onEat(playerObject);
+        realFuit.onEat(getPlayer());
         // Destroy(fruit);
     }
 }
