@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -120,7 +121,17 @@ public class GameManager : MonoBehaviour
         }      
     }
 
+    public void GameOver()
+    {
+        // anim.SetTrigger("gameOver");
+        Invoke("ChangeToGameOver", 2f);
+        //Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
+        //StartCoroutine("waitTwoSeconds");
+        //Debug.Log("Switching...");
+    }
 
-
-    
+    private void ChangeToGameOver()
+    {
+        SceneManager.LoadScene("Scenes/GameOver");
+    }    
 }
