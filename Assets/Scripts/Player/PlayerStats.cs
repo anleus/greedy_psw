@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     public int calories { get; private set; }
     public int health { get; private set; }
 
-    public GameObject myPrefab;
+    public GameObject LoseLifeEffect;
 
     private GameObject Player;
 
@@ -41,8 +41,9 @@ public class PlayerStats : MonoBehaviour
 
         if (health == 0)
         {
-            Player.transform.position = new Vector3(0.5f,0.5f,0f);
             ReduceLifes(1);
+            Debug.Log("Vida quitada");
+            GameManager.instance.spawnPlayer();
         }
     }
 
@@ -59,7 +60,7 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Life reduced by " + amount + "\nRemaining lives: " + lifes);
 
         if (withAnimation)
-            GameManager.CreateEffect(myPrefab, new Vector3(0,0,0), Player.transform);
+            GameManager.CreateEffect(LoseLifeEffect, new Vector3(0,0,0), Player.transform);
         
         if (lifes == 0)
         {

@@ -29,9 +29,9 @@ public class LifesUI : MonoBehaviour
         for (int i = 0; i < lifes.Count; i++)
         {
             if (GameManager.instance.playerStats.lifes > i)
-                lifes[i].color = new Color(256f, 256f, 256f);
+                lifes[i].color = new Color32(255, 255, 225, 255);
             else
-                lifes[i].color = new Color(30, 30, 30);
+                lifes[i].color = lifes[i].color = new Color32(50, 50, 50, 100);
         }
     }
 }

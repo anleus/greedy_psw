@@ -34,6 +34,18 @@ public class GameManager : MonoBehaviour
         return particleSystem;
     }
 
+    // Para spawnear al jugador
+    public void spawnPlayer()
+    {
+        playerStats.IncreaseHealth(PlayerStats.MaxHealth);
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+
+
+        playerObject.transform.position = spawnpoint.transform.position;
+        Debug.Log("PLAYER HAS BEEN SPAWNED");
+    }
+
     void Awake()
     {
         MakeSingleton();
