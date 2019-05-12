@@ -25,6 +25,6 @@ public class MainMenu : MonoBehaviour
         //Debug.Log("Game Over, waiting 2 seconds until I switch scenes");
         //yield return new WaitForSeconds(2f);
         //Debug.Log("Switching...");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Scenes/GameOver");
     }
 }
