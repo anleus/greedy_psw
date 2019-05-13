@@ -46,7 +46,7 @@ public class JoseAnimator : MonoBehaviour
             jose.SetBool("FacingUp", true);
             jose.SetBool("FacingDown", false);
         }
-        else if (dir.y > 0 && dir.x == 0)
+        else if (dir.y < 0 && dir.x == 0)
         {
             //Debug.Log("FacingDown");
             jose.SetBool("FacingLeft", false);
