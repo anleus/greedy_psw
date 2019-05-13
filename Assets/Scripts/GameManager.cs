@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
     public CurrentState state;
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats; 
-
-    float nextUpdate = 0f;
-    float currentTime = 0f;
     public Animator anim;
 
-    
+    public int lifes { get; private set; }
+    public int calories { get; private set; }
+    public int health { get; private set; }
+
+
     //Para crear particle systems se usa esto
     public static GameObject CreateEffect(GameObject effect, Vector3 position, Transform parent = null)
     {
@@ -68,7 +69,10 @@ public class GameManager : MonoBehaviour
     public GameObject getPlayer()
     {
         if (playerObject == null)
-            return GameObject.FindGameObjectWithTag("Player");
+        {
+            playerObject = GameObject.FindGameObjectWithTag("Player");
+            return playerObject;
+        }
         else
             return playerObject;
     }
@@ -76,9 +80,24 @@ public class GameManager : MonoBehaviour
     public PlayerStats getPlayerStats()
     {
         if (playerStats == null)
-            return getPlayer().GetComponent<PlayerStats>();
+        {
+            if (getPlayer() != null)
+                return getPlayer().GetComponent<PlayerStats>();
+            else
+                return null;
+        }
         else
             return playerStats;
+    }
+
+    public Animator getAnim()
+    {
+        if (anim == null)
+        {
+            anim = GameObject.Find("CanvasBlackFade").GetComponent<Animator>();
+        }
+
+        return anim;
     }
 
     // Para spawnear al jugador
@@ -120,6 +139,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        PlayerStats stats = getPlayerStats();
+        if (stats != null)
+        {
+            calories = stats.calories;
+            health = stats.health;
+            lifes = stats.lifes;
+        }
     }
 
     private void startSpawningLifes()
@@ -143,7 +169,7 @@ public class GameManager : MonoBehaviour
     {
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
-        anim.SetTrigger("gameOver");
+        getAnim().SetTrigger("gameOver");
         Invoke("ChangeToGameOver", 1f);
     }
 
@@ -169,7 +195,7 @@ public class GameManager : MonoBehaviour
     {
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
-        anim.SetTrigger("gameOver");
+        getAnim().SetTrigger("gameOver");
         Invoke("ChangeToWin", 1f);
     }
 

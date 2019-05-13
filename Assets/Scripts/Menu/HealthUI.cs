@@ -16,7 +16,7 @@ public class HealthUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Salud: " + GameManager.instance.getPlayerStats().health + "%";
+        healthText.text = "Salud: " + GameManager.instance.health + "%";
     }
 
 }
