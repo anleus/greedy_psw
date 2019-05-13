@@ -14,5 +14,8 @@ public class GoodFruit : BaseEntity
         Destroy(gameObject); // Destruir la entidad
 
         GameManager.instance.getPlayerStats().IncreaseCalories(bonusCalories);
+
+
+        GameManager.instance.PlaySound(SoundManager.instance.fruitEat);
     }
 }

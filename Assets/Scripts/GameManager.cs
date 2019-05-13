@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
         return entity;
     }
 
+    public void PlaySound(AudioClip sound)
+    {
+        SoundManager.instance.getAvailableAudioSource().PlayOneShot(sound, 1f);
+    }
+
     public GameObject getPlayer()
     {
         if (playerObject == null)
