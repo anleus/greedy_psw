@@ -14,7 +14,7 @@ public class LifesUI : MonoBehaviour
 
         for (int i = 0; i < PlayerStats.MaxLifes; i++)
         {
-            GameObject life = Instantiate(vidaImage, new Vector3(-150 + i * 45, 0, 0), Quaternion.identity);
+            GameObject life = Instantiate(vidaImage, new Vector3(-200 + i * 45, 0, 0), Quaternion.identity);
             life.transform.SetParent(gameObject.transform, false);
             //life.transform.localScale = new Vector3(0.1f, 0.1f, 1);
             
