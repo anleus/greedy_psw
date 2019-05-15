@@ -14,6 +14,6 @@ public class BadEntityHP : BaseEntity
         Destroy(gameObject); // Destruir la entidad
 
 
-        GameManager.instance.getPlayerStats().ReduceHealth(damage);
+        GameManager.instance.getPlayerStats().IncreaseDamage(damage);
     }
 }

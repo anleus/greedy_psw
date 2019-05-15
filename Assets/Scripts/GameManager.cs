@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     // Para spawnear al jugador
     public void spawnPlayer()
     {
-        getPlayerStats().IncreaseHealth(PlayerStats.MaxHealth);
+        //getPlayerStats().DecreaseDamage(PlayerStats.MinDamage);
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
 
