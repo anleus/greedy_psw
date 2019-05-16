@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public static int MaxLifes = 5;
-    public static int MaxHealth = 100;
+    public static int MinDamage = 0;
+    public static int MaxDamage = 100;
 
     public int lifes { get; private set; }
     public int calories { get; private set; }
@@ -18,7 +19,7 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         lifes = MaxLifes;
-        health = MaxHealth;
+        health = MinDamage;
         calories = 0;
 
         Player = gameObject;
@@ -30,22 +31,23 @@ public class PlayerStats : MonoBehaviour
     }
 
     //Health Functions
-    public void ReduceHealth(int amount, bool withAnimation = true)
+    public void IncreaseDamage(int amount, bool withAnimation = true)
     {
-        health = Mathf.Max(0, health - amount); // Reducir la vida pero no por debajo de cero.
+        health = Mathf.Min(MaxDamage, health + amount); // Aumentar el daño pero no por encima de 100
         Debug.Log("Health reduced by " + amount + "\nRemaining lives: " + lifes);
 
-        if (health == 0)
+        if (health == MaxDamage)
         {
             ReduceLifes(1);
             Debug.Log("Vida quitada");
             GameManager.instance.spawnPlayer();
+            health = MinDamage;
         }
     }
 
-    public void IncreaseHealth(int amount)
+    public void DecreaseDamage(int amount)
     {
-        health = Mathf.Min(MaxHealth, health + amount); // Aumentar la vida pero no por encima de MaxHealth.
+        health = Mathf.Max(MinDamage, health - amount); // Reducir el daño pero no por debajo de 0
     }
 
 

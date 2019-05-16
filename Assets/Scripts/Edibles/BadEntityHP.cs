@@ -15,6 +15,6 @@ public class BadEntityHP : BaseEntity
 
         GameManager.instance.PlaySound(SoundManager.instance.explosion);
 
-        GameManager.instance.getPlayerStats().ReduceHealth(damage);
+        GameManager.instance.getPlayerStats().IncreaseDamage(damage);
     }
 }
