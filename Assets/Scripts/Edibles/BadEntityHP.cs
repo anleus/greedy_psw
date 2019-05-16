@@ -13,6 +13,7 @@ public class BadEntityHP : BaseEntity
         //GameManager.CreateEffect(effect, col.gameObject.transform.position);
         Destroy(gameObject); // Destruir la entidad
 
+        GameManager.instance.PlaySound(SoundManager.instance.explosion);
 
         GameManager.instance.getPlayerStats().ReduceHealth(damage);
     }
