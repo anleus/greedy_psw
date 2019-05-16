@@ -448,17 +448,10 @@ RectTransform:
   m_Father: {fileID: 1586445739}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618, y: 463}
-  m_SizeDelta: {x: 640.1, y: 29.35}
-=======
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 375.14, y: -31.5}
   m_SizeDelta: {x: 706.38, y: 29.35}
->>>>>>> 20eabf5f8f5d8b47925c31e0717a40cd542e24f1
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201067513
 MonoBehaviour:
@@ -926,17 +919,10 @@ RectTransform:
   m_Father: {fileID: 1586445739}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -557.1099, y: 424.72}
-  m_SizeDelta: {x: 761.87, y: 36.46}
-=======
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 128.08002, y: -160.79999}
   m_SizeDelta: {x: 215.22998, y: 36.45999}
->>>>>>> 20eabf5f8f5d8b47925c31e0717a40cd542e24f1
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555651799
 MonoBehaviour:
@@ -11277,8 +11263,7 @@ MonoBehaviour:
   StarEffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   ResurrectionLightEffect: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022,
     type: 3}
-  StarHitEffect: {fileID: 1845240806346120, guid: b395d5d6eb4b4b846acc021ee036b744,
-    type: 3}
+  StarHitEffect: {fileID: 100004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
   LifeEntityPrefab: {fileID: 6607690052587145090, guid: 57631d08d383ef8479d3cda5d8182a8f,
     type: 3}
   fruitsPrefabs:
@@ -12666,17 +12651,10 @@ RectTransform:
   m_Father: {fileID: 1586445739}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -560.11993, y: 364.72998}
-  m_SizeDelta: {x: 755.87, y: 39.12}
-=======
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 71.20044, y: -73.20001}
   m_SizeDelta: {x: 100.19, y: 39.119995}
->>>>>>> 20eabf5f8f5d8b47925c31e0717a40cd542e24f1
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469404219
 MonoBehaviour:
@@ -14045,7 +14023,7 @@ Transform:
   - {fileID: 1586445739}
   - {fileID: 1490887238}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049407995
 GameObject:
