@@ -36,9 +36,6 @@ public class AI : MonoBehaviour
         {
             Debug.Log("enemy");
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-        } else if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("player");
         }
     }
 }
