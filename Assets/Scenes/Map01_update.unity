@@ -228,7 +228,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -450,7 +450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375.14, y: -31.5}
+  m_AnchoredPosition: {x: 464, y: -95}
   m_SizeDelta: {x: 706.38, y: 29.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201067513
@@ -567,7 +567,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -679,7 +679,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -722,7 +722,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (7)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -825,7 +825,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -921,7 +921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 128.08002, y: -160.79999}
+  m_AnchoredPosition: {x: 221, y: -231}
   m_SizeDelta: {x: 215.22998, y: 36.45999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555651799
@@ -11144,7 +11144,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (5)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11418,7 +11418,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11675,7 +11675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 117.70001, y: -102.5}
+  m_AnchoredPosition: {x: 211, y: -181}
   m_SizeDelta: {x: 197, y: 22.400024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305027186
@@ -11961,14 +11961,14 @@ RectTransform:
   m_GameObject: {fileID: 1398037986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0375, y: 0.7697676, z: 1}
+  m_LocalScale: {x: 1.0375, y: 0.5677036, z: 1}
   m_Children: []
   m_Father: {fileID: 1305027185}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.5, y: 0.4}
+  m_AnchoredPosition: {x: 12, y: 0.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398037988
@@ -12019,8 +12019,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12037,7 +12037,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -12057,7 +12057,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 12.0436125, z: 0, w: 8.60261}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 4
@@ -12678,7 +12678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 71.20044, y: -73.20001}
+  m_AnchoredPosition: {x: 161, y: -145}
   m_SizeDelta: {x: 100.19, y: 39.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469404219
@@ -13428,7 +13428,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13445,7 +13445,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13488,7 +13488,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13554,7 +13554,7 @@ PrefabInstance:
     - target: {fileID: 5543173467565768002, guid: 14c51d87b4c6b014d93512b96ab794f3,
         type: 3}
       propertyPath: m_Name
-      value: Skypiece
+      value: Dogo
       objectReference: {fileID: 0}
     - target: {fileID: 1898739396240270277, guid: 14c51d87b4c6b014d93512b96ab794f3,
         type: 3}
@@ -13783,7 +13783,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (6)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14049,7 +14049,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14148,7 +14148,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (5)
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -15758,7 +15758,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0 (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

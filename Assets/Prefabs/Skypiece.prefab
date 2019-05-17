@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4716423668069808352}
   - component: {fileID: 277198023689238638}
   - component: {fileID: 3754411996770919607}
+  - component: {fileID: 3117327281366884957}
   - component: {fileID: 3790502089334623580}
   m_Layer: 0
   m_Name: Skypiece
@@ -149,6 +150,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3117327281366884957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543173467565768002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25dbbfcf11ca1d24d97b21517396ed36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3790502089334623580
 Animator:
   serializedVersion: 3
