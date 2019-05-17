@@ -29,13 +29,16 @@ public class AI : MonoBehaviour
         }        
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision");
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("enemy");
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        } else if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("player");
         }
     }
 }
