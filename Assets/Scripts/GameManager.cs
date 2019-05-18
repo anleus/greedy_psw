@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public int lifes { get; private set; }
     public int calories { get; private set; }
-    public int health { get; private set; }
+    public int damageReceived { get; private set; }
 
 
     //Para crear particle systems se usa esto
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         if (stats != null)
         {
             calories = stats.calories;
-            health = stats.health;
+            damageReceived = stats.health;
             lifes = stats.lifes;
         }
     }

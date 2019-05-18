@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class HealthUI : MonoBehaviour
@@ -9,19 +10,25 @@ public class HealthUI : MonoBehaviour
     //Text healthText;
     // Start is called before the first frame update
 
-    public Image damage;
+    private GameObject damageBar;
+    private Image damageBarImage;
+    public TextMeshProUGUI damageText;
 
     void Start()
     {
-        //healthText = GetComponent<Text>();
+        damageBar = transform.Find("DamageBar").gameObject;
+
+        damageBarImage = damageBar.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //healthText.text = "Salud: " + GameManager.instance.health + "%";
-
-        damage.fillAmount = GameManager.instance.health / 100f;
+        damageBarImage.fillAmount = GameManager.instance.damageReceived / 100f;
+        damageText.text = "DAÑO: " + GameManager.instance.damageReceived + " %";
+        //Debug.Log("fillAmount");
+        //Debug.Log(damageText);
+        
     }
 
 }

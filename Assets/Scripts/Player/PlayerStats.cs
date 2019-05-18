@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int MaxLifes = 5;
+    public static int MaxLifes = 3;
     public static int MinDamage = 0;
     public static int MaxDamage = 100;
 
