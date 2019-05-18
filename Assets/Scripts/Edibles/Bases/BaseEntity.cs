@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseEntity : MonoBehaviour
 {
+    public SpawnPointLogic currentSpawnPoint;
 
     protected virtual void Start()
     {
@@ -26,5 +27,13 @@ public class BaseEntity : MonoBehaviour
         //GameManager.CreateEffect(effect, col.gameObject.transform.position);
        // Destroy(gameObject); // Destruir la manzana
     }
+
+
+    protected virtual void OnDestroy()
+    {
+        if (currentSpawnPoint != null)
+            currentSpawnPoint.FreeSpawnPoint();
+    }
+
 
 }

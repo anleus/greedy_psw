@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodFruit : BaseEdible
+public class GoodVegetable : BaseEdible
 {
     
     protected override void Start()
     {
         base.Start();
 
-        this.baseCalorieAmount = 5;
+        this.baseCalorieAmount = 10;
     }
 
     public void onEat(GameObject player)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3433805677170983665}
   - component: {fileID: 3433805675451011963}
   - component: {fileID: 3433805675451011960}
-  - component: {fileID: 3433805675451011966}
+  - component: {fileID: 707490385597083148}
   m_Layer: 0
   m_Name: Seta
   m_TagString: Eatable
@@ -98,7 +98,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0063323257, y: -0.014457164}
   serializedVersion: 2
   m_Radius: 0.14133237
---- !u!114 &3433805675451011966
+--- !u!114 &707490385597083148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,10 +107,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3433805675451011967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f877bba7b5abfc843abe8b6bf92fbc69, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bda2e26b84fa8341bfdcae987d6b023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusCalories: 30
 --- !u!1 &3433805676721238833
 GameObject:
   m_ObjectHideFlags: 0

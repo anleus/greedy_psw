@@ -134,6 +134,61 @@ public class GameManager : MonoBehaviour
         return lifeEntity;
     }
 
+    public GameObject getRandomFreeSpawnpoint()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
+        if (spawnPoints.Length == 0)
+            return null;
+
+        GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+        int attempts = 0;
+        while (spawnpoint.GetComponent<SpawnPointLogic>().isBeingUsed)
+        {
+            spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+            if ((attempts++) > spawnPoints.Length)
+                return null;  // RETURN NULL CAUSE THERE ARE NO FREE SPAWNPOINTS
+        }
+
+        return spawnpoint;
+    }
+
+
+    // Para spawnear una fruta o verdura
+    public GameObject spawnRandomEdible(int posInArray = -1)
+    {
+
+        GameObject spawnPoint = getRandomFreeSpawnpoint();   
+        if (spawnPoint == null)
+            return null;  // NO FREE SPAWNPOINTS
+
+        // Start Picking What Edible To Spawn
+        Debug.Log("PosInArray: " + posInArray);
+        if (posInArray == -1)
+            posInArray = Random.Range(0, AssetManager.instance.fruitsVegetablesPrefabs.Length);
+
+        
+        while(posInArray > (AssetManager.instance.fruitsVegetablesPrefabs.Length - 1))
+        {
+            posInArray = posInArray - AssetManager.instance.fruitsVegetablesPrefabs.Length;
+        }
+        // End Picking What Edible To Spawn
+
+
+        GameObject edible = GameManager.CreateEntity(AssetManager.instance.fruitsVegetablesPrefabs[posInArray], spawnPoint.transform.position);
+        edible.GetComponent<BaseEdible>().currentSpawnPoint = spawnPoint.GetComponent<SpawnPointLogic>();
+        spawnPoint.GetComponent<SpawnPointLogic>().UseSpawnPoint(edible);
+        //Set the Parent of the Edible
+        edible.transform.SetParent(GameObject.Find("Edibles").transform);
+
+        return edible;
+    }
+
+    public void spawnEdibles(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+            spawnRandomEdible(i);
+    }
+
     void Awake()
     {
         MakeSingleton();

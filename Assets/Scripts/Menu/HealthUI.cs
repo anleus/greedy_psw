@@ -39,9 +39,6 @@ public class HealthUI : MonoBehaviour
 
         damageBarImage.fillAmount += delta;
         damageText.text = "DAÑO: " + Mathf.Round(damageBarImage.fillAmount*100) + " %";
-        //Debug.Log("fillAmount");
-        //Debug.Log(damageText);
-        
     }
 
 }
