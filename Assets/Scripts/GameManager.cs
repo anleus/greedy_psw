@@ -239,10 +239,24 @@ public class GameManager : MonoBehaviour
         state = CurrentState.WATCHING_UI;
     }    
 
-    public void EatFruit(GameObject fruit)
+    public void EatFruit(GameObject o)
     {
-        GoodFruit realFuit = fruit.GetComponent<GoodFruit>();
-        realFuit.onEat(getPlayer());
+        GoodVegetable vegetable;
+        GoodFruit fruit;
+
+        BaseEdible edible = o.GetComponent<BaseEdible>();
+
+        if (edible is GoodVegetable)
+        {
+            vegetable = (GoodVegetable)edible;
+            vegetable.onEat(getPlayer());
+        }
+        else if (edible is GoodFruit)
+        {
+            fruit = (GoodFruit)edible;
+            fruit.onEat(getPlayer());
+        }
+
         GameObject[] fruitsList = GameObject.FindGameObjectsWithTag("Eatable");
 
         if (fruitsList.Length == 1)

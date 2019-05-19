@@ -44,5 +44,5 @@ public class BaseEdible : BaseEntity
         return baseCalorieAmount*3; //FruitSize.BIG
     }
 
-
+    protected virtual void onEat() { }
 }
