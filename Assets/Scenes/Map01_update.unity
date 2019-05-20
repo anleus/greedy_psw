@@ -331,6 +331,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 738550547}
     m_Modifications:
+    - target: {fileID: 2574026362868350432, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
+        type: 3}
+      propertyPath: m_Name
+      value: Manzana Env - Bajo
+      objectReference: {fileID: 0}
     - target: {fileID: 2574026362868350447, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -385,11 +390,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2574026362868350432, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
-        type: 3}
-      propertyPath: m_Name
-      value: Manzana Env - Bajo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31545b7c5eb16642a8d6f8de05e3ccd, type: 3}
@@ -11481,6 +11481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2022855624}
   LifeSpawnCooldown: 15
+  acceptPlayerInput: 0
   state: 1
   playerStats: {fileID: 2022855625}
   anim: {fileID: 1490887239}
@@ -12927,6 +12928,21 @@ PrefabInstance:
       propertyPath: speed
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6707531661150103764, guid: 5b9a785aef1aa0647b3a1940121bf670,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707531661150103764, guid: 5b9a785aef1aa0647b3a1940121bf670,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707531661150103764, guid: 5b9a785aef1aa0647b3a1940121bf670,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9a785aef1aa0647b3a1940121bf670, type: 3}
 --- !u!4 &1481522098 stripped
@@ -13061,6 +13077,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 738550547}
     m_Modifications:
+    - target: {fileID: 2574026362868350432, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
+        type: 3}
+      propertyPath: m_Name
+      value: Manzana Env - Bajo (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2574026362868350447, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13115,11 +13136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2574026362868350432, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
-        type: 3}
-      propertyPath: m_Name
-      value: Manzana Env - Bajo (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31545b7c5eb16642a8d6f8de05e3ccd, type: 3}
@@ -13618,6 +13634,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 738550547}
     m_Modifications:
+    - target: {fileID: 2574026362868350432, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
+        type: 3}
+      propertyPath: m_Name
+      value: Manzana Env - Bajo (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 2574026362868350447, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13672,11 +13693,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2574026362868350432, guid: b31545b7c5eb16642a8d6f8de05e3ccd,
-        type: 3}
-      propertyPath: m_Name
-      value: Manzana Env - Bajo (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31545b7c5eb16642a8d6f8de05e3ccd, type: 3}

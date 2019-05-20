@@ -40,7 +40,9 @@ public class PlayerStats : MonoBehaviour
         {
             ReduceLifes(1);
             Debug.Log("Vida quitada");
-            GameManager.instance.spawnPlayer();
+            if(lifes != 0) {
+                GameManager.instance.spawnPlayer();
+            }
             health = MinDamage;
         }
     }
@@ -62,12 +64,9 @@ public class PlayerStats : MonoBehaviour
         
         if (lifes == 0)
         {
-            Player.SetActive(false);
-            // No sé cómo cambiar de escena, no me deja si el player está inactivo
+            //Player.SetActive(false);
+            GameManager.instance.acceptPlayerInput = false;
             GameManager.instance.GameOver();
-            //Debug.Log("HAS MUERTO");
-            //GameManager.instance.MainMenu.GameOver();
-            //main.GameOver();
         }
     }
 
@@ -82,7 +81,6 @@ public class PlayerStats : MonoBehaviour
     public void ReduceCalories(int amount)
     {
         calories = Mathf.Max(0, calories - amount); // Reducir las calories pero no por debajo de cero.
-
     }
 
     public void IncreaseCalories(int amount)

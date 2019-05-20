@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4531011f4b57a0242b0c451f464a4141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numOfEdibles: 15
 --- !u!4 &206423239
 Transform:
   m_ObjectHideFlags: 0
@@ -11504,6 +11505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2022855624}
   LifeSpawnCooldown: 15
+  acceptPlayerInput: 0
   state: 1
   playerStats: {fileID: 2022855625}
   anim: {fileID: 1490887239}
@@ -12988,6 +12990,21 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707531661150103764, guid: 5b9a785aef1aa0647b3a1940121bf670,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707531661150103764, guid: 5b9a785aef1aa0647b3a1940121bf670,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707531661150103764, guid: 5b9a785aef1aa0647b3a1940121bf670,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9a785aef1aa0647b3a1940121bf670, type: 3}

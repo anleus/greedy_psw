@@ -7,16 +7,24 @@ public class PlayerController : Character
 
     private bool eatAllowed;
     private GameObject currentFuit;
+    // public SpriteRenderer spriteRenderer;
 
     void Start () 
     {
+        GameManager.instance.spriteRenderer = GetComponent<SpriteRenderer>();
+        GameManager.instance.acceptPlayerInput = true;
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        GetInput();
+        if(GameManager.instance.acceptPlayerInput){
+            GetInput();
+        }
+
+        //GameManager.instance.spriteRenderer.color = new Color(255, 0, 0);  
+        GameManager.instance.spriteRenderer.color = Color.Lerp(GameManager.instance.spriteRenderer.color, Color.white, Time.deltaTime/1.5f);          
     }
 
 
@@ -43,7 +51,7 @@ public class PlayerController : Character
             direction += Vector2.right;
         }
 
-        if(Input.GetKey(KeyCode.C) && eatAllowed) 
+        if(Input.GetKey(KeyCode.Space) && eatAllowed) 
         {
             EatFruit();
         }
@@ -64,6 +72,12 @@ public class PlayerController : Character
             currentFuit = collision.gameObject;
             eatAllowed = true;
         }
+        /*
+        else if(collision.gameObject.tag.Equals("Enemy")) 
+        {
+            Debug.Log("Choque con enemigo: debe cambiar de color");
+        }
+         */
     }
 
     private void OnTriggerExit2D(Collider2D collision)

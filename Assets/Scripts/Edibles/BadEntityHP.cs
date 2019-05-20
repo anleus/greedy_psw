@@ -14,7 +14,9 @@ public class BadEntityHP : BaseEntity
         Destroy(gameObject); // Destruir la entidad
 
         GameManager.instance.PlaySound(SoundManager.instance.explosion);
-
+        //GameManager.instance.spriteRenderer.color = new Color(255, 0, 0);  
+        //GameManager.instance.spriteRenderer.color = Color.Lerp(Color.red, Color.white, Time.deltaTime/1.5f); 
+        GameManager.instance.spriteRenderer.color = new Color(255, 0, 0); 
         GameManager.instance.getPlayerStats().IncreaseDamage(damage);
     }
 }

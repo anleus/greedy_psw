@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
     public GameObject playerObject; 
     public float LifeSpawnCooldown;
+    public SpriteRenderer spriteRenderer;
+    public bool acceptPlayerInput;
 
     public enum CurrentState
     {
@@ -229,8 +231,10 @@ public class GameManager : MonoBehaviour
     {
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
-        getAnim().SetTrigger("gameOver");
-        Invoke("ChangeToGameOver", 1f);
+        Animator playerAnimator = getPlayer().GetComponent<Animator>();
+        playerAnimator.SetBool("isDead", true);
+        //getAnim().SetTrigger("gameOver");
+        Invoke("ChangeToGameOver", 2f);
     }
 
     private void ChangeToGameOver()
