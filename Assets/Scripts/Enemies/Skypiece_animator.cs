@@ -17,10 +17,10 @@ public class Skypiece_animator : MonoBehaviour
         bool diagonal_right = (dir.x < 0.1 && dir.x >= 0);
         bool diagonal_left = (dir.x > -0.1 && dir.x <= 0);
 
-        Debug.Log("Dirección perro: x = " + dir.x + "   y = " + dir.y);
+        //Debug.Log("Dirección perro: x = " + dir.x + "   y = " + dir.y);
 
         dogo.SetBool("face_left", dir.x < 0);
-        dogo.SetBool("face_right", dir.x > 0); 
+        dogo.SetBool("face_right", dir.x > 0);
         dogo.SetBool("face_up", dir.y > 0 && (diagonal_right || diagonal_left) );
         dogo.SetBool("face_down", dir.y < 0 && (diagonal_right || diagonal_left) );
 
