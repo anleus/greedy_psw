@@ -21,9 +21,7 @@ public class PlayerController : Character
     {
         if(GameManager.instance.acceptPlayerInput){
             GetInput();
-        }
-
-        //GameManager.instance.spriteRenderer.color = new Color(255, 0, 0);  
+        } 
         GameManager.instance.spriteRenderer.color = Color.Lerp(GameManager.instance.spriteRenderer.color, Color.white, Time.deltaTime/1.5f);          
     }
 

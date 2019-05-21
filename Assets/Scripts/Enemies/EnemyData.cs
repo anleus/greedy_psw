@@ -7,11 +7,11 @@ public class EnemyData : MonoBehaviour
     public float[] position;
 
     // Falta obtener el level
-    public EnemyData(PlayerStats ps)
+    public EnemyData(Enemy enemy)
     {
         position = new float[3];
-        position[0] = ps.transform.position.x;
-        position[1] = ps.transform.position.y;
-        //position[2] = ps.transform.position.z;
+        position[0] = enemy.transform.position.x;
+        position[1] = enemy.transform.position.y;
+        //position[2] = enemy.transform.position.z;
     }
 }
