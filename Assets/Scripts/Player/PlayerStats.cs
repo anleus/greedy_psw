@@ -10,6 +10,8 @@ public class PlayerStats : MonoBehaviour
     public static int MinDamage = 0;
     public static int MaxDamage = 100;
 
+    public int level; // Falta ponerlo al nivel de mapa en el que está
+
     public int lifes { get; private set; }
     public int calories { get; private set; }
     public int health { get; private set; }
@@ -86,6 +88,26 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseCalories(int amount)
     {
         calories = calories + amount; // Aumentar las calories
+    }
+
+
+    // Falta salvar posiciones de objetos y enemigos + usar/asignar estos métodos de abajo donde toca
+    public void SavePlayer() {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer() {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        level = data.level;
+        calories = data.calories;
+        health = data.health;
+        lifes = data.lifes;
+
+        Vector2 position;    
+        position.x = data.position[0];
+        position.y = data.position[1];    
+        transform.position = position;
     }
 }
 
