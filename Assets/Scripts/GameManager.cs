@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
-    public GameObject playerObject; 
+    public GameObject playerObject;
     public float LifeSpawnCooldown;
     public SpriteRenderer spriteRenderer;
     public bool acceptPlayerInput;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public CurrentState state;
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
-    public PlayerStats playerStats; 
+    public PlayerStats playerStats;
     public Animator anim;
 
     public int lifes { get; private set; }
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity);
         particleSystem.layer = 8; // Particles
-            
+
         //Debug.Log(parent);
         if (parent != null)
         {
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawnRandomEdible(int posInArray = -1)
     {
 
-        GameObject spawnPoint = getRandomFreeSpawnpoint();   
+        GameObject spawnPoint = getRandomFreeSpawnpoint();
         if (spawnPoint == null)
             return null;  // NO FREE SPAWNPOINTS
 
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         if (posInArray == -1)
             posInArray = Random.Range(0, AssetManager.instance.fruitsVegetablesPrefabs.Length);
 
-        
+
         while(posInArray > (AssetManager.instance.fruitsVegetablesPrefabs.Length - 1))
         {
             posInArray = posInArray - AssetManager.instance.fruitsVegetablesPrefabs.Length;
@@ -208,7 +208,17 @@ public class GameManager : MonoBehaviour
             damageReceived = stats.health;
             lifes = stats.lifes;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+		    onGamePaused();
+        }
     }
+
+    private void onGamePaused() {
+        if (Time.timeScale == 1) Time.timeScale = 0;
+        else if (Time.timeScale == 0) Time.timeScale = 1;
+    }
+
 
     private void startSpawningLifes()
     {
@@ -218,13 +228,13 @@ public class GameManager : MonoBehaviour
 
     private void MakeSingleton()
     {
-        if (instance != null) { 
+        if (instance != null) {
             Destroy(gameObject);
         }
-        else { 
+        else {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }      
+        }
     }
 
     public void GameOver()
@@ -241,7 +251,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/GameOver");
         state = CurrentState.WATCHING_UI;
-    }    
+    }
 
     public void EatFruit(GameObject o)
     {
