@@ -41,8 +41,6 @@ public class GameManager : MonoBehaviour
         {
             particleSystem.transform.parent = parent;
             particleSystem.transform.position = position;
-
-            Debug.Log("SHOULD BE PARENT!");
         }
 
         Debug.Log("Creatin particles: " + effect.name + " in: " + effectPosition);
@@ -56,7 +54,6 @@ public class GameManager : MonoBehaviour
 
         GameObject entity = Instantiate(prefab, entityPosition, Quaternion.identity);
 
-        //Debug.Log(parent);
         if (parent != null)
         {
             entity.transform.parent = parent;
@@ -76,35 +73,22 @@ public class GameManager : MonoBehaviour
     public GameObject getPlayer()
     {
         if (playerObject == null)
-        {
             playerObject = GameObject.FindGameObjectWithTag("Player");
-            return playerObject;
-        }
-        else
-            return playerObject;
+
+        return playerObject;
     }
 
     public PlayerStats getPlayerStats()
     {
         if (playerStats == null)
-        {
-            if (getPlayer() != null)
-                return getPlayer().GetComponent<PlayerStats>();
-            else
-                return null;
-        }
-        else
-            return playerStats;
+            playerStats = getPlayer().GetComponent<PlayerStats>();
+
+        return playerStats;
     }
 
     public Animator getAnim()
     {
-        if (anim == null)
-        {
-            anim = GameObject.Find("CanvasBlackFade").GetComponent<Animator>();
-        }
-
-        return anim;
+        return  anim ?? GameObject.Find("CanvasBlackFade").GetComponent<Animator>();
     }
 
     // Para spawnear al jugador
@@ -130,9 +114,13 @@ public class GameManager : MonoBehaviour
     public void spawnEdiblesFromLastSave()
     {
         EdibleData[] ediblesData = SaveSystem.LoadEdibles();
-        foreach(EdibleData edibleData in ediblesData)
+        if (ediblesData == null  || ediblesData.Length == 0)
+            return;  // NO HAY NINGUNA PARTIDA GUARDADA
+
+        foreach (EdibleData edibleData in ediblesData)
         {
             int PrefabIndex = edibleData.prefabIndex;
+            Debug.Log("Index: " + PrefabIndex);
 
             Vector3 entPos = new Vector3(edibleData.currentPosition.x, edibleData.currentPosition.y, edibleData.currentPosition.z);
             GameObject edible = GameManager.CreateEntity(AssetManager.instance.fruitsVegetablesPrefabs[PrefabIndex], entPos);
@@ -198,6 +186,7 @@ public class GameManager : MonoBehaviour
 
         GameObject edible = GameManager.CreateEntity(AssetManager.instance.fruitsVegetablesPrefabs[posInArray], spawnPoint.transform.position);
         edible.GetComponent<BaseEdible>().currentSpawnPoint = spawnPoint.GetComponent<SpawnPointLogic>();
+        edible.GetComponent<BaseEdible>().prefabIndex = posInArray;
         spawnPoint.GetComponent<SpawnPointLogic>().UseSpawnPoint(edible);
         //Set the Parent of the Edible
         edible.transform.SetParent(GameObject.Find("Edibles").transform);
@@ -258,17 +247,6 @@ public class GameManager : MonoBehaviour
         Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
 
-    private void MakeSingleton()
-    {
-        if (instance != null) {
-            Destroy(gameObject);
-        }
-        else {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
     public void GameOver()
     {
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
@@ -324,5 +302,19 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(playerObject);
         SceneManager.LoadScene("Scenes/YouWin");
         state = CurrentState.WATCHING_UI;
+    }
+
+
+    protected void MakeSingleton()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

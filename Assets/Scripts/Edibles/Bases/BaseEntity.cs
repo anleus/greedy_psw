@@ -17,6 +17,11 @@ public class BaseEntity : MonoBehaviour
 
     }
 
+    protected virtual void Awake()
+    {
+
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")

@@ -13,6 +13,12 @@ public class SoundManager : MonoBehaviour
 
 
     public AudioSource[] audioSources;
+
+
+    public void Awake()
+    {
+        MakeSingleton();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -34,16 +40,7 @@ public class SoundManager : MonoBehaviour
         return audioSources[0];
     }
 
-
-
-
-
-    void Awake()
-    {
-        MakeSingleton();
-    }
-
-    private void MakeSingleton()
+    protected void MakeSingleton()
     {
         if (instance != null)
         {

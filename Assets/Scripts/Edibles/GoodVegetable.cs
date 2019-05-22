@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GoodVegetable : BaseEdible
@@ -25,3 +26,4 @@ public class GoodVegetable : BaseEdible
         GameManager.instance.PlaySound(SoundManager.instance.fruitEat);
     }
 }
+

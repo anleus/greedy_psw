@@ -102,8 +102,8 @@ public class PlayerStats : MonoBehaviour
         lifes = data.lifes;
 
         Vector2 position;    
-        position.x = data.position[0];
-        position.y = data.position[1];    
+        position.x = data.position.x;
+        position.y = data.position.y;    
 
         transform.position = position;
     }

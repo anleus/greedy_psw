@@ -48,6 +48,7 @@ public static class SaveSystem
         foreach(GameObject edibleObject in listOfEdibles)
         {
             EdibleData edibleData = edibleObject.GetComponent<BaseEdible>().m_data;
+            Debug.Log("Saving Edible: " + edibleData.prefabIndex + " size: " + edibleData.size);
             listOfData[index++] = edibleData;
         }
 
@@ -63,6 +64,11 @@ public static class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
 
             EdibleData[] edibleDatas = formatter.Deserialize(stream) as EdibleData[];
+
+            foreach (EdibleData ed in edibleDatas)
+            {
+                Debug.Log("Restoring Edible: " + ed.prefabIndex + " size: " + ed.size);
+            }
             stream.Close();
             return edibleDatas;
         } else {
@@ -73,7 +79,7 @@ public static class SaveSystem
 
     public static void SaveGame()
     { 
-        //SavePlayerData();
+        SavePlayerData();
         SaveEdibles();
     }
 
@@ -86,5 +92,6 @@ public static class SaveSystem
 
 
         GameManager.instance.Invoke("spawnEdiblesFromLastSave", 0.25f);
+        GameManager.instance.Invoke("spawnPlayerFromLastSave", 0.25f);
     }
 }

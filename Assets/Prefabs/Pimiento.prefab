@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpawnPoint: {fileID: 0}
-  PrefabIndex: 5
+  prefabIndex: 5
 --- !u!50 &2307315987249118113
 Rigidbody2D:
   serializedVersion: 4
