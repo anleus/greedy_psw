@@ -4,8 +4,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static void SavePlayer(PlayerStats ps) 
+    public static void SavePlayerData() 
     {
+        PlayerStats ps = GameManager.instance.getPlayerStats();
+
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.fun";
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -16,7 +18,8 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static PlayerData LoadPlayer() {
+    public static PlayerData LoadPlayerData()
+    {
         string path = Application.persistentDataPath + "/player.fun";
         if(File.Exists(path)) {
             Debug.Log("Existe");
@@ -33,43 +36,55 @@ public static class SaveSystem
         }
     }
 
-        public static void SaveEnemy(Enemy enemy) 
+    public static void SaveEdibles() 
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/enemy.fun";
+        string path = Application.persistentDataPath + "/edibles.fun";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        EnemyData data = new EnemyData(enemy);
+        GameObject[] listOfEdibles = GameObject.FindGameObjectsWithTag("Eatable");
+        EdibleData[] listOfData = new EdibleData[listOfEdibles.Length];
+        int index = 0;
+        foreach(GameObject edibleObject in listOfEdibles)
+        {
+            EdibleData edibleData = edibleObject.GetComponent<BaseEdible>().m_data;
+            listOfData[index++] = edibleData;
+        }
 
-        formatter.Serialize(stream, data);
+        formatter.Serialize(stream, listOfData);
         stream.Close();
     }
 
-    public static EnemyData LoadEnemy() {
-        string path = Application.persistentDataPath + "/enemy.fun";
+    public static EdibleData[] LoadEdibles() {
+        string path = Application.persistentDataPath + "/edibles.fun";
         if(File.Exists(path)) {
-            Debug.Log("Existe");
+            Debug.Log(path);
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            EnemyData data = formatter.Deserialize(stream) as EnemyData;
+            EdibleData[] edibleDatas = formatter.Deserialize(stream) as EdibleData[];
             stream.Close();
-            return data;
+            return edibleDatas;
         } else {
             Debug.LogError("Save file not found in " + path);
             return null;
         }
     }
 
-    public static void SaveGame(PlayerStats ps, Enemy enemy) {
-        Debug.Log("Saving Game!");
-        SavePlayer(ps);
-        SaveEnemy(enemy);
+    public static void SaveGame()
+    { 
+        //SavePlayerData();
+        SaveEdibles();
     }
 
-    public static void LoadGame(PlayerStats ps, Enemy enemy) {
-        Debug.Log("Loading Game!");
-        LoadPlayer();
-        LoadEnemy();
+    public static void LoadGame()
+    {
+        foreach (GameObject edibleObject in GameObject.FindGameObjectsWithTag("Eatable"))
+        {
+            GameObject.Destroy(edibleObject, 0.1f);
+        }
+
+
+        GameManager.instance.Invoke("spawnEdiblesFromLastSave", 0.25f);
     }
 }

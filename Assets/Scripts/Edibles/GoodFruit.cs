@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GoodFruit : BaseEdible
 {
     
@@ -9,7 +10,7 @@ public class GoodFruit : BaseEdible
     {
         base.Start();
 
-        this.baseCalorieAmount = 5;
+        this.m_data.baseCalorieAmount = 5;
     }
 
     public void onEat(GameObject player)

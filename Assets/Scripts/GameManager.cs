@@ -110,15 +110,35 @@ public class GameManager : MonoBehaviour
     // Para spawnear al jugador
     public void spawnPlayer()
     {
-        //getPlayerStats().DecreaseDamage(PlayerStats.MinDamage);
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
 
-
         getPlayer().transform.position = spawnpoint.transform.position;
         Debug.Log("PLAYER HAS BEEN SPAWNED");
+
     }
 
+    public void spawnPlayerFromLastSave()
+    {
+        PlayerData lastPlayerData = SaveSystem.LoadPlayerData();
+        if (lastPlayerData == null)
+            return;  // NO HAY NINGUNA PARTIDA GUARDADA
+
+        getPlayerStats().LoadPlayerData(lastPlayerData);
+    }
+
+    public void spawnEdiblesFromLastSave()
+    {
+        EdibleData[] ediblesData = SaveSystem.LoadEdibles();
+        foreach(EdibleData edibleData in ediblesData)
+        {
+            int PrefabIndex = edibleData.prefabIndex;
+
+            Vector3 entPos = new Vector3(edibleData.currentPosition.x, edibleData.currentPosition.y, edibleData.currentPosition.z);
+            GameObject edible = GameManager.CreateEntity(AssetManager.instance.fruitsVegetablesPrefabs[PrefabIndex], entPos);
+            edible.GetComponent<BaseEdible>().copyData(edibleData);
+        }
+    }
 
     // Para spawnear una vida
     public GameObject spawnLife()
@@ -211,6 +231,18 @@ public class GameManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape)){
 		    onGamePaused();
+        }
+
+   
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            Debug.Log("GAME WAS SAVED");
+            SaveSystem.SaveGame();
+        }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            Debug.Log("GAME WAS RELOADED");
+            SaveSystem.LoadGame();
         }
     }
 

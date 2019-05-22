@@ -9,7 +9,7 @@ public class GoodVegetable : BaseEdible
     {
         base.Start();
 
-        this.baseCalorieAmount = 10;
+        m_data.baseCalorieAmount = 10;
     }
 
     public void onEat(GameObject player)

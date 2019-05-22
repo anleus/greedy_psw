@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpawnPoint: {fileID: 0}
+  PrefabIndex: 4
 --- !u!1 &3174345014520613735
 GameObject:
   m_ObjectHideFlags: 0

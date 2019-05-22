@@ -2,47 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BaseEdible : BaseEntity
 {
-    public enum Size
-    {
-        SMALL,
-        MEDIUM,
-        BIG
-    }
+    public enum Size { SMALL, MEDIUM, BIG }
 
-    private Size size; // Randomly picked in start
-
-    protected int baseCalorieAmount = 0;
+    public EdibleData m_data { get; protected set; }
 
     protected override void Start()
     {
+        this.m_data = new EdibleData();
         base.Start();
 
-        this.size = (Size)Random.Range(0, 3);
+        this.m_data.size = (Size)Random.Range(0, 3);
+
+        this.m_data.originalLocalScale = new Vector3Ser(transform.localScale);
+
         changeSize();
+    }
+
+    protected override void Update()
+    {
+        this.m_data.currentPosition = new Vector3Ser(transform.position);
     }
 
 
     protected void changeSize()
     {
-        if (this.size == Size.SMALL)
-            transform.localScale = transform.localScale * new Vector2(0.75f, 0.75f);
-        if (this.size == Size.MEDIUM)
-            transform.localScale = transform.localScale * new Vector2(1f, 1f);
-        if (this.size == Size.BIG)
-            transform.localScale = transform.localScale * new Vector2(1.25f, 1.25f);
+
+        if (m_data.size == Size.SMALL)
+            transform.localScale = m_data.originalLocalScale.toVector() * new Vector2(0.75f, 0.75f);
+        if (m_data.size == Size.MEDIUM)
+            transform.localScale = m_data.originalLocalScale.toVector() * new Vector2(1f, 1f);
+        if (m_data.size == Size.BIG)
+            transform.localScale = m_data.originalLocalScale.toVector() * new Vector2(1.25f, 1.25f);
     }
 
     protected int getCaloriesAmount()
     {
-        if (this.size == Size.SMALL)
-            return baseCalorieAmount;
-        if (this.size == Size.MEDIUM)
-            return baseCalorieAmount*2;
+        if (m_data.size == Size.SMALL)
+            return m_data.baseCalorieAmount;
+        if (m_data.size == Size.MEDIUM)
+            return m_data.baseCalorieAmount *2;
 
-        return baseCalorieAmount*3; //FruitSize.BIG
+        return m_data.baseCalorieAmount *3; //FruitSize.BIG
     }
 
+    public void copyData(EdibleData data)
+    {
+        this.m_data = data;
+
+        changeSize();
+    }
     protected virtual void onEat() { }
+
+
 }
