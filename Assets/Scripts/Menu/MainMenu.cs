@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
         if (GameManager.instance != null)
             GameManager.instance.state = GameManager.CurrentState.PLAYING;
 
-        SceneManager.LoadScene("Scenes/Map01_update");
+        SceneManager.LoadScene("Scenes/mapas_definitivos/Map_01");
     }
 
      public void QuitGame()
