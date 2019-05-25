@@ -9,15 +9,27 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 84d5bada0c9f1494782831e6aaa087dd
   - enabled: 1
-    path: Assets/Scenes/Map01.unity
-    guid: b076097f931fb1e429d330f765a66ed5
+    path: Assets/Scenes/mapas_definitivos/Map_01.unity
+    guid: d7ccfcd4edcd21b4ba597b5719647aa8
   - enabled: 1
-    path: Assets/Scenes/Map01_update_NO.unity
-    guid: 7cc5817a7a961134facfddf1e1dc6324
+    path: Assets/Scenes/mapas_definitivos/Map_02.unity
+    guid: 3268390fa7560c24a8456c6d05a30ddd
+  - enabled: 1
+    path: Assets/Scenes/mapas_definitivos/Map_03.unity
+    guid: 10fb004101ea8fb43b85b779e9410f9e
+  - enabled: 1
+    path: Assets/Scenes/mapas_definitivos/Map_04.unity
+    guid: a7b3340960b98f64dac916e465284c0f
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 893a4215c29d26b429a792d2e1777302
   - enabled: 1
     path: Assets/Scenes/YouWin.unity
     guid: 4ee779f6700034746a6be848b2dad8b7
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Map01_update_NO.unity
+    guid: 7cc5817a7a961134facfddf1e1dc6324
   m_configObjects: {}

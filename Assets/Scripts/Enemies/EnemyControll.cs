@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyControll : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnemyControll : MonoBehaviour
 
     [SerializeField]
     float moveSpeed = 2f;
+
+    float difficulty;
 
     int waypointIndex = 0;
 
@@ -23,6 +26,8 @@ public class EnemyControll : MonoBehaviour
     void Start() {
 
         CargarPuntos();
+        
+        GetDifficulty();
 
         transform.position = waypoints[waypointIndex].transform.position;
 
@@ -46,7 +51,7 @@ public class EnemyControll : MonoBehaviour
 
         //Debug.Log(dir);
 
-        transform.position = Vector2.MoveTowards(ini, fin, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(ini, fin, difficulty* moveSpeed * Time.deltaTime);
 
         if (transform.position == waypoints[waypointIndex].transform.position) {
             waypointIndex += 1;
@@ -70,5 +75,10 @@ public class EnemyControll : MonoBehaviour
             i++;
         }
 
+    }
+
+    void GetDifficulty() {
+        difficulty = (SceneManager.GetActiveScene().buildIndex + 1) / 2;
+        Debug.Log("Difficulty of level: " + difficulty);
     }
 }
