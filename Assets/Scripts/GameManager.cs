@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
 
         getPlayer().transform.position = spawnpoint.transform.position;
-        Debug.Log("PLAYER HAS BEEN SPAWNED");
+        //Debug.Log("PLAYER HAS BEEN SPAWNED");
 
     }
 
