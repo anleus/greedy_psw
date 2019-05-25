@@ -302,7 +302,7 @@ public class GameManager : MonoBehaviour
 
     private void ChangeToWin()
     {
-        //Debug.Log(SceneManager.GetActiveScene().name);
+        storeStats ();
         DontDestroyOnLoad(playerObject);
         switch (SceneManager.GetActiveScene().buildIndex) {
             case 1 :  SceneManager.LoadScene(2); break;
@@ -311,8 +311,8 @@ public class GameManager : MonoBehaviour
             case 4 :  SceneManager.LoadScene(6); break;
             default : SceneManager.LoadScene("Scenes/YouWin"); state = CurrentState.WATCHING_UI; break;
         }
+        restoreStats();
     }
-
 
     protected void MakeSingleton()
     {
@@ -325,5 +325,19 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    protected void storeStats () {
+        PlayerStats ps = getPlayerStats();
+        calories = ps.calories;
+        damageReceived = ps.health;
+        lifes = ps.lifes;
+    }
+
+    protected void restoreStats () {
+        PlayerStats ps = getPlayerStats();
+        ps.IncreaseCalories(calories);
+        ps.IncreaseDamage(damageReceived);
+        ps.IncreaseLifes(lifes);
     }
 }

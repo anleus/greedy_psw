@@ -78,7 +78,7 @@ public class EnemyControll : MonoBehaviour
     }
 
     void GetDifficulty() {
-        difficulty = (SceneManager.GetActiveScene().buildIndex + 1) / 2;
-        Debug.Log("Difficulty of level: " + difficulty);
+        difficulty = (SceneManager.GetActiveScene().buildIndex + 1) / 2f;
+        Debug.Log("Level: " + SceneManager.GetActiveScene().name + "\nDifficulty of level: " + difficulty);
     }
 }
