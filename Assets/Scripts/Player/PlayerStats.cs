@@ -67,6 +67,9 @@ public class PlayerStats : MonoBehaviour
         if (this.lifes == 0)
         {
             //Player.SetActive(false);
+            // Cambio a Game Over
+            GameManager.instance.PlaySound(SoundManager.instance.monkeyDeath);
+            //GameManager.instance.StopMapMusic();
             GameManager.instance.acceptPlayerInput = false;
             GameManager.instance.GameOver();
         }

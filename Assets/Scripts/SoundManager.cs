@@ -5,12 +5,14 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-
     public AudioClip fruitEat;
-    public AudioClip monkeyWalk;
+    public AudioClip monckeyWalk;
     public AudioClip damage;
     public AudioClip explosion;
+    public AudioClip monkeyDeath;
+    public AudioClip lifeClink;
 
+    public AudioClip mapMusic;
 
     public AudioSource[] audioSources;
 
@@ -34,8 +36,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource getAvailableAudioSource()
     {
         foreach (AudioSource asource in audioSources)
-            if (!asource.isPlaying)
+        {
+            if (!asource.isPlaying) {
                 return asource;
+            }
+        }
 
         return audioSources[0];
     }
@@ -49,7 +54,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
     }
 }

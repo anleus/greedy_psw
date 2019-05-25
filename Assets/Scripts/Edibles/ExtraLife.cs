@@ -11,6 +11,8 @@ public class ExtraLife : BaseEntity
     }
     protected override void OnCollision(Collision2D col)
     {
+        GameManager.instance.PlaySound(SoundManager.instance.lifeClink);
+        
         GameManager.CreateEffect(AssetManager.instance.HeartPickupEffect, transform.position);
         GameManager.CreateEffect(AssetManager.instance.HeartPickupEffect, col.gameObject.transform.position);
         Destroy(gameObject);

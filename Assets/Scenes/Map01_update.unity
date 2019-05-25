@@ -787,6 +787,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7137977909b824db200a54995da205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &243454514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243454516}
+  - component: {fileID: 243454515}
+  m_Layer: 0
+  m_Name: MapMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &243454515
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243454514}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f4a137955f42e2b42a7048c70b42cc61,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7a4e2fed623d2ce48a7ed61c974d01b2, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &243454516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243454514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.751303, y: -2.7754831, z: 0.33203125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &305666574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13065,10 +13193,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d94e3956ade1441b0ce40b59b84f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitEat: {fileID: 8300000, guid: a2c7df5a6782f7942b8b2f4dcb1f2828, type: 3}
-  monkeyWalk: {fileID: 0}
-  damage: {fileID: 0}
+  fruitEat: {fileID: 8300000, guid: 811e000728d58bb40bf7b074a45bcdcb, type: 3}
+  monckeyWalk: {fileID: 8300000, guid: 2999236a7ad140346b78288a57f46e42, type: 3}
+  damage: {fileID: 8300000, guid: 59e005f47da7c104c8ffd3a3e785459a, type: 3}
   explosion: {fileID: 8300000, guid: afd4319bd6029b64eb6de6b37b5fcd42, type: 3}
+  monkeyDeath: {fileID: 8300000, guid: 0f202694e2ec227479a34961f6a42f85, type: 3}
+  lifeClink: {fileID: 8300000, guid: 6971e08454a4a88469d962e3ea87d3d4, type: 3}
+  mapMusic: {fileID: 8300000, guid: 7a4e2fed623d2ce48a7ed61c974d01b2, type: 3}
   audioSources: []
 --- !u!82 &1418663445
 AudioSource:

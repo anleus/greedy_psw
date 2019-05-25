@@ -7,6 +7,7 @@ public class PlayerController : Character
 
     private bool eatAllowed;
     private GameObject currentFuit;
+
     // public SpriteRenderer spriteRenderer;
 
     void Start () 
@@ -23,6 +24,7 @@ public class PlayerController : Character
             GetInput();
         } 
         GameManager.instance.spriteRenderer.color = Color.Lerp(GameManager.instance.spriteRenderer.color, Color.white, Time.deltaTime/1.5f);          
+        StepSound();
     }
 
 
@@ -34,7 +36,7 @@ public class PlayerController : Character
     private void GetInput()
     {
         direction = Vector2.zero;
-        // Arriba
+
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             direction += Vector2.up;
@@ -84,6 +86,15 @@ public class PlayerController : Character
         {
             currentFuit = null;
             eatAllowed = false;
+        }
+    }
+
+    IEnumerator StepSound()
+    {
+        while(rigidBody.velocity.x != 0 || rigidBody.velocity.y != 0)
+        {
+            GameManager.instance.PlaySound(SoundManager.instance.monckeyWalk);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
