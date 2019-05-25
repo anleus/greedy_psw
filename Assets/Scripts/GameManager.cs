@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     // Para spawnear una vida
     public GameObject spawnLife()
     {
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Lifes_spawns");
         int length = spawnPoints.Length;
 
         if (length == 0)
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject getRandomFreeSpawnpoint()
     {
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Food_spawns");
         if (spawnPoints.Length == 0)
             return null;
 
