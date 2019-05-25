@@ -718,6 +718,11 @@ PrefabInstance:
       propertyPath: path
       value: 
       objectReference: {fileID: 1860067552}
+    - target: {fileID: 1467044505476309772, guid: b842a44a87c05b044a702bd8a229fa9a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1467044505476309775, guid: b842a44a87c05b044a702bd8a229fa9a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -14070,9 +14075,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitEat: {fileID: 8300000, guid: a2c7df5a6782f7942b8b2f4dcb1f2828, type: 3}
-  monkeyWalk: {fileID: 0}
+  monckeyWalk: {fileID: 0}
   damage: {fileID: 0}
   explosion: {fileID: 8300000, guid: afd4319bd6029b64eb6de6b37b5fcd42, type: 3}
+  monkeyDeath: {fileID: 0}
+  lifeClink: {fileID: 0}
+  mapMusic: {fileID: 0}
   audioSources: []
 --- !u!82 &1418663445
 AudioSource:
@@ -17027,6 +17035,11 @@ PrefabInstance:
       propertyPath: path
       value: 
       objectReference: {fileID: 1291165842}
+    - target: {fileID: 1467044505476309772, guid: b842a44a87c05b044a702bd8a229fa9a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1467044505476309775, guid: b842a44a87c05b044a702bd8a229fa9a,
         type: 3}
       propertyPath: m_SortingOrder

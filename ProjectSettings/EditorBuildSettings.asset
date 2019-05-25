@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/mapas_definitivos/Map_03.unity
     guid: 10fb004101ea8fb43b85b779e9410f9e
   - enabled: 1
+    path: Assets/Scenes/mapas_definitivos/Map_04.unity
+    guid: a7b3340960b98f64dac916e465284c0f
+  - enabled: 1
     path: Assets/Scenes/YouWin.unity
     guid: 4ee779f6700034746a6be848b2dad8b7
   - enabled: 1
