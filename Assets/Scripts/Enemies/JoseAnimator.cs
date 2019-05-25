@@ -23,9 +23,9 @@ public class JoseAnimator : MonoBehaviour
     public void Facing(Vector2 dir)
     {
         //Debug.Log(dir);
-        jose.SetBool("FacingLeft", dir.x < 0 && dir.y == 0);
-        jose.SetBool("FacingRight", dir.x > 0 && dir.y == 0);
-        jose.SetBool("FacingUp", dir.y > 0 && dir.x == 0);
-        jose.SetBool("FacingDown", dir.y < 0 && dir.x == 0);
+        jose.SetBool("FacingLeft", dir.x < 0 /*&& dir.y == 0*/);
+        jose.SetBool("FacingRight", dir.x > 0 /*&& dir.y == 0*/);
+        jose.SetBool("FacingUp", dir.y > 0 /*&& dir.x == 0*/);
+        jose.SetBool("FacingDown", dir.y < 0 /*&& dir.x == 0*/);
     }
 }
