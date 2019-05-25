@@ -304,11 +304,11 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(playerObject);
-        switch (SceneManager.GetActiveScene().name) {
-            case "Map_01" :  SceneManager.LoadScene(4); break;
-            case "Map_02" :  SceneManager.LoadScene(5); break;
-            case "Map_03" :  SceneManager.LoadScene(6); break;
-            case "Map_04" :  SceneManager.LoadScene(2); break;
+        switch (SceneManager.GetActiveScene().buildIndex) {
+            case 1 :  SceneManager.LoadScene(2); break;
+            case 2 :  SceneManager.LoadScene(3); break;
+            case 3 :  SceneManager.LoadScene(4); break;
+            case 4 :  SceneManager.LoadScene(6); break;
             default : SceneManager.LoadScene("Scenes/YouWin"); state = CurrentState.WATCHING_UI; break;
         }
     }
