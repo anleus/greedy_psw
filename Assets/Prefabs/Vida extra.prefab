@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2139643738280996736}
   - component: {fileID: 5880172789566890772}
   m_Layer: 0
-  m_Name: Vida extra 1
+  m_Name: Vida extra
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607690052587145090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.69, y: 2.55, z: 0}
-  m_LocalScale: {x: 1.1473671, y: 1.0169675, z: 1}
+  m_LocalPosition: {x: 3.8013, y: 2.6439, z: 0}
+  m_LocalScale: {x: 1.4322584, y: 1.2694806, z: 1.2483}
   m_Children:
   - {fileID: 3744662075212654328}
   m_Father: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ad0072bcf62e64eb5a40439bd1a0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 100004, guid: 3af6f68141914ca43ba39b2403757bd0, type: 3}
+  currentSpawnPoint: {fileID: 0}
 --- !u!1 &8500581249325718539
 GameObject:
   m_ObjectHideFlags: 0

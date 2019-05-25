@@ -88,7 +88,10 @@ public class GameManager : MonoBehaviour
 
     public Animator getAnim()
     {
-        return  anim ?? GameObject.Find("CanvasBlackFade").GetComponent<Animator>();
+        if (anim == null) 
+            anim = GameObject.Find("CanvasBlackFade").GetComponent<Animator>();
+
+        return  anim;
     }
 
     // Para spawnear al jugador
@@ -131,7 +134,7 @@ public class GameManager : MonoBehaviour
     // Para spawnear una vida
     public GameObject spawnLife()
     {
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Lifes_spawns");
         int length = spawnPoints.Length;
 
         if (length == 0)
@@ -146,7 +149,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject getRandomFreeSpawnpoint()
     {
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("EntitySpawnPoint");
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Food_spawns");
         if (spawnPoints.Length == 0)
             return null;
 
@@ -299,9 +302,15 @@ public class GameManager : MonoBehaviour
 
     private void ChangeToWin()
     {
+        //Debug.Log(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(playerObject);
-        SceneManager.LoadScene("Scenes/YouWin");
-        state = CurrentState.WATCHING_UI;
+        switch (SceneManager.GetActiveScene().buildIndex) {
+            case 1 :  SceneManager.LoadScene(2); break;
+            case 2 :  SceneManager.LoadScene(3); break;
+            case 3 :  SceneManager.LoadScene(4); break;
+            case 4 :  SceneManager.LoadScene(6); break;
+            default : SceneManager.LoadScene("Scenes/YouWin"); state = CurrentState.WATCHING_UI; break;
+        }
     }
 
 

@@ -10,6 +10,8 @@ TagManager:
   - SpawnPoint
   - EntitySpawnPoint
   - Eatable
+  - Food_spawns
+  - Lifes_spawns
   layers:
   - Default
   - TransparentFX
