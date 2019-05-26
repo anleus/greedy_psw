@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour
         set { m_data.calories = value; }
     }
 
-    
+
 
     public int currentLevel { get; set; }
 
@@ -57,8 +57,9 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    void Update()
+    void Start()
     {
+
     }
 
     //Health Functions

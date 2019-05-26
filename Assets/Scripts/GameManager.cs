@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     // Referencia a nuestro GameObject del mono para poder hacer con el lo que queramos en el futuro (se lo enchufamos desde unity arrastrando el mono
     public GameObject playerObject;
+    public int timeLimitMap = 60;
     public float LifeSpawnCooldown;
     public SpriteRenderer spriteRenderer;
     public bool acceptPlayerInput;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public int lifes { get; private set; }
     public int calories { get; private set; }
     public int damageReceived { get; private set; }
+    public float timeLeft { get; private set; }
 
     private PlayerStatsData playerStatsCopy;
 
@@ -212,10 +214,20 @@ public class GameManager : MonoBehaviour
         Invoke("startSpawningLifes", LifeSpawnCooldown);
     }
 
+    private void Start()
+    {
+        timeLeft = GameManager.instance.timeLimitMap;
+        Debug.Log("STARTIGN " + timeLeft);
+    }
+
     private void Update()
     {
         GameObject player = getPlayer();
         PlayerStats stats;
+       
+
+        timeLeft -= Time.deltaTime;
+
         if (player != null)
         {
             stats = getPlayerStats();
@@ -267,7 +279,6 @@ public class GameManager : MonoBehaviour
     {
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
-        resetStats();
         Animator playerAnimator = getPlayer().GetComponent<Animator>();
         playerAnimator.SetBool("isDead", true);
         //getAnim().SetTrigger("gameOver");
@@ -354,19 +365,25 @@ public class GameManager : MonoBehaviour
     {
         playerStats = new PlayerStats();
 
-        Debug.Log("Restoring Stats: " + playerStats);
-
         playerStats.IncreaseCalories(playerStatsCopy.calories);
         playerStats.IncreaseDamage(playerStatsCopy.health);
         playerStats.IncreaseLifes(playerStatsCopy.lifes);
     }
 
-    protected void resetStats()
+    public void resetStats()
     {
         playerStatsCopy = new PlayerStatsData();
-        playerStats.calories = 0;
-        playerStats.health = 0;
-        playerStats.lifes = 0;
+        
+
+        if (getPlayer() != null)
+        {
+            PlayerStats stats = getPlayerStats();
+            stats.calories = 0;
+            stats.health = 0;
+            stats.lifes = 0;
+        }
+
+        timeLeft = GameManager.instance.timeLimitMap;
     }
 
 }

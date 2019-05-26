@@ -19,7 +19,10 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         if (GameManager.instance != null)
+        {
+            GameManager.instance.resetStats();
             GameManager.instance.state = GameManager.CurrentState.PLAYING;
+        }
 
         SceneManager.LoadScene("Scenes/mapas_definitivos/Map_01");
     }
