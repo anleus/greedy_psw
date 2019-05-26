@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : Character
 {
-
+    private float lastStepTime;
+    
     private bool eatAllowed;
     private GameObject currentFuit;
 
@@ -89,12 +90,16 @@ public class PlayerController : Character
         }
     }
 
-    IEnumerator StepSound()
+    public void StepSound()
     {
-        while(rigidBody.velocity.x != 0 || rigidBody.velocity.y != 0)
+        if(lastStepTime + stepSoundCooldown > Time.time) 
+            return;
+        
+        if(rigidBody.velocity.magnitude != 0)
         {
             GameManager.instance.PlaySound(SoundManager.instance.monckeyWalk);
-            yield return new WaitForSeconds(0.5f);
+            lastStepTime = Time.time;
+            //yield return new WaitForSeconds(0.5f);
         }
     }
 }
