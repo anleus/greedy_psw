@@ -25,6 +25,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         audioSources = GetComponents<AudioSource>();
+        getAvailableAudioSource().PlayOneShot(this.mapMusic, 1f);
     }
 
     // Update is called once per frame
