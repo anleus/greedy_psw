@@ -29,9 +29,12 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public Animator anim;
 
+
     public int lifes { get; private set; }
     public int calories { get; private set; }
     public int damageReceived { get; private set; }
+
+    private PlayerStats playerStatsCopy;
 
 
     //Para crear particle systems se usa esto
@@ -228,9 +231,19 @@ public class GameManager : MonoBehaviour
         if (player != null)
         {
             stats = getPlayerStats();
+            if (stats.calories == 0 && (playerStatsCopy != null) && playerStatsCopy.calories > 0 && playerStatsCopy.lifes > 0)
+            {
+                stats.calories = playerStatsCopy.calories;
+                stats.health = playerStatsCopy.health;
+                stats.lifes = playerStatsCopy.lifes;
+            }
+            
             calories = stats.calories;
             damageReceived = stats.health;
             lifes = stats.lifes;
+
+            if (state == CurrentState.PLAYING)
+                stats.setCurrentLevel(SceneManager.GetActiveScene().buildIndex);
         }
 
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -266,6 +279,7 @@ public class GameManager : MonoBehaviour
     {
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
+        resetStats();
         Animator playerAnimator = getPlayer().GetComponent<Animator>();
         playerAnimator.SetBool("isDead", true);
         //getAnim().SetTrigger("gameOver");
@@ -339,17 +353,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    protected void storeStats () {
-        PlayerStats ps = getPlayerStats();
-        calories = ps.calories;
-        damageReceived = ps.health;
-        lifes = ps.lifes;
+    protected void storeStats()
+    {
+        playerStatsCopy = new PlayerStatsData();
+
+        playerStatsCopy.calories = playerStats.calories;
+        playerStatsCopy.health = playerStats.health;
+        playerStatsCopy.lifes = playerStats.lifes;
     }
 
-    protected void restoreStats () {
-        PlayerStats ps = getPlayerStats();
-        ps.IncreaseCalories(calories);
-        ps.IncreaseDamage(damageReceived);
-        ps.IncreaseLifes(lifes);
+    public void restoreStats()
+    {
+        playerStats = new PlayerStats();
+
+        Debug.Log("Restoring Stats: " + playerStats);
+
+        playerStats.IncreaseCalories(playerStatsCopy.calories);
+        playerStats.IncreaseDamage(playerStatsCopy.health);
+        playerStats.IncreaseLifes(playerStatsCopy.lifes);
     }
+
+    protected void resetStats()
+    {
+        playerStatsCopy = new PlayerStatsData();
+        playerStats.calories = 0;
+        playerStats.health = 0;
+        playerStats.lifes = 0;
+    }
+
 }

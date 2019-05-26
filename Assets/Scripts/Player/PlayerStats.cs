@@ -4,22 +4,51 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public class PlayerStatsData
+{
+    public int lifes { get; set; }
+    public int calories { get; set; }
+    public int health { get; set; }
+}
 public class PlayerStats : MonoBehaviour
 {
     public static int MaxLifes = 3;
     public static int MinDamage = 0;
     public static int MaxDamage = 100;
 
-    public int lifes { get; private set; }
-    public int calories { get; private set; }
-    public int health { get; private set; }
+    private PlayerStatsData m_data;
 
-    public int currentLevel { get; private set; }
+    public int lifes
+    {
+        get { return m_data.lifes; }
+        set { m_data.lifes = value; }
+    }
+    public int health
+    {
+        get { return m_data.health;}
+        set { m_data.health = value;}
+    }
+    public int calories
+    {
+        get { return m_data.calories; }
+        set { m_data.calories = value; }
+    }
+
+    
+
+    public int currentLevel { get; set; }
 
     private GameObject Player;
 
+    public PlayerStats()
+    {
+        this.m_data = new PlayerStatsData();
+    }
+
     void Awake()
     {
+        
+
         this.lifes = MaxLifes;
         this.health = MinDamage;
         this.calories = 0;
@@ -109,6 +138,11 @@ public class PlayerStats : MonoBehaviour
         position.y = data.position.y;    
 
         transform.position = position;
+    }
+
+    public override string ToString()
+    {
+        return "PlayerStats:  calories: " + calories + " health: " + health + " lifes: " + lifes; 
     }
 }
 
