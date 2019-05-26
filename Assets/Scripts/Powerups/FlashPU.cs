@@ -6,11 +6,13 @@ public class FlashPU : BasePowerup
 {
     public GameObject powerupEffect;
 
-    public void OnTriggerEnter(Collider other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject.tag == "Player")
         {
-            PickUp(powerupEffect, other, 0);
+            PickUp(powerupEffect, other, 1);
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;
         }
     }
 }

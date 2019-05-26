@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         timeLeft = GameManager.instance.timeLimitMap;
-        Debug.Log("STARTIGN " + timeLeft);
+        Debug.Log("STARTING " + timeLeft);
     }
 
     private void Update()

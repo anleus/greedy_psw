@@ -9,8 +9,6 @@ public class PlayerController : Character
     private bool eatAllowed;
     private GameObject currentFuit;
 
-    // public SpriteRenderer spriteRenderer;
-
     void Start () 
     {
         GameManager.instance.spriteRenderer = GetComponent<SpriteRenderer>();

@@ -8,11 +8,11 @@ public class ShieldPU :  BasePowerup
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Collision entered");
-        if(other.CompareTag("Player"))
+        if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Player entered");
-            PickUp(powerupEffect, other, 1);
+            PickUp(powerupEffect, other, 0);
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;
         }
     }
 }
