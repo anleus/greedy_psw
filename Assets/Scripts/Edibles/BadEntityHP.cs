@@ -9,7 +9,8 @@ public class BadEntityHP : BaseEntity
     protected override void OnCollision(Collision2D col)
     {
         //Hacer aparecer los efectos
-        GameManager.CreateEffect(AssetManager.instance.PurpleDeathExplosionEffect, transform.position);
+        Debug.Log("Explosion!! le paso " + transform.position);
+        GameManager.CreateEffect(AssetManager.instance.PurpleDeathExplosionEffect, transform.position + effectOffset, null);
         Destroy(gameObject); // Destruir la entidad
 
         GameManager.instance.PlaySound(SoundManager.instance.explosion);

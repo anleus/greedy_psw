@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44a801a362b602499e3672ec8909794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpawnPoint: {fileID: 0}
+  effectOffset: {x: -1.5, y: -0.5, z: 0}
   damage: 80
 --- !u!1001 &1511005517639418824
 PrefabInstance:
@@ -218,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 7369916008651329356, guid: 0f19037d94d255243a0a52b1fe0ed7e2,
         type: 3}
       propertyPath: offset.y
-      value: -0.3
+      value: -0.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f19037d94d255243a0a52b1fe0ed7e2, type: 3}

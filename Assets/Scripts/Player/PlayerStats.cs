@@ -62,7 +62,7 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Life reduced by " + amount + "\nRemaining lives: " + this.lifes);
 
         if (withAnimation)
-            GameManager.CreateEffect(AssetManager.instance.BrokenHeartEffect, new Vector3(0,0,0), Player.transform);
+            GameManager.CreateEffect(AssetManager.instance.BrokenHeartEffect, new Vector3(2,-1.5f,0), Player.transform);
         
         if (this.lifes == 0)
         {

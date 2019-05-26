@@ -29,19 +29,15 @@ public class GameManager : MonoBehaviour
 
 
     //Para crear particle systems se usa esto
-    public static GameObject CreateEffect(GameObject effect, Vector3 position, Transform parent = null)
+    public static GameObject CreateEffect(GameObject effect, Vector3 position, Transform parent)
     {
-        Vector3 effectPosition = (parent != null) ? parent.transform.position : position;
+        Vector3 effectPosition = position;
 
-        GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity);
-        particleSystem.layer = 8; // Particles
-
-        //Debug.Log(parent);
+        Debug.Log("position: " + position + " effectposition: " + effectPosition);
+        GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity, parent);
         if (parent != null)
-        {
-            particleSystem.transform.parent = parent;
-            particleSystem.transform.position = position;
-        }
+            particleSystem.transform.localPosition = position;
+        particleSystem.layer = 8; // Particles
 
         Debug.Log("Creatin particles: " + effect.name + " in: " + effectPosition);
 

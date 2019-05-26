@@ -26,7 +26,7 @@ public class Skypiece_enemy : Enemy
 
             GameManager.instance.PlaySound(SoundManager.instance.damage);
             Vector3 effectPosition = transform.position + new Vector3(0f, 1f, 0f);
-            GameManager.CreateEffect(AssetManager.instance.StarHitEffect, effectPosition);
+            GameManager.CreateEffect(AssetManager.instance.StarHitEffect, effectPosition, null);
         }
     }
 }

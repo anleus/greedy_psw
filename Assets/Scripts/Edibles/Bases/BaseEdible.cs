@@ -11,6 +11,7 @@ public class BaseEdible : BaseEntity
 
     public EdibleData m_data;
     public int prefabIndex;
+    
 
     protected override void Start()
     {

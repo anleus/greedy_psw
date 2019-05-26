@@ -24,8 +24,8 @@ public class Jose_enemy : Enemy {
             collision.gameObject.GetComponent<PlayerStats>().IncreaseDamage(PlayerStats.MaxDamage);
 
             GameManager.instance.PlaySound(SoundManager.instance.damage);
-            Vector3 effectPosition = transform.position + new Vector3(0f, 1f, 0f);
-            GameManager.CreateEffect(AssetManager.instance.StarHitEffect, effectPosition);
+            Vector3 effectPosition = new Vector3(2f, -2f, 0f);
+            GameManager.CreateEffect(AssetManager.instance.StarHitEffect, collision.gameObject.transform.position + effectPosition, null);
         }
     }
 }

@@ -16,8 +16,8 @@ public class GoodVegetable : BaseEdible
     public void onEat(GameObject player)
     {
         //Hacer aparecer los efectos
-        GameManager.CreateEffect(AssetManager.instance.PoofEffect, transform.position);
-        GameManager.CreateEffect(AssetManager.instance.PoofEffect, player.transform.position);
+        GameManager.CreateEffect(AssetManager.instance.PoofEffect, transform.position + effectOffset, null);
+        GameManager.CreateEffect(AssetManager.instance.PoofEffect, player.transform.position + effectOffset, null);
         Destroy(gameObject); // Destruir la entidad
 
         GameManager.instance.getPlayerStats().IncreaseCalories(getCaloriesAmount());

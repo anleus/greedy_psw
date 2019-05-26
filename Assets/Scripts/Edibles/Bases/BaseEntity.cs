@@ -6,6 +6,7 @@ using UnityEngine;
 public class BaseEntity : MonoBehaviour
 {
     public SpawnPointLogic currentSpawnPoint;
+    public Vector3 effectOffset = new Vector3(-1.5f, -1f, 0);
 
     protected virtual void Start()
     {
