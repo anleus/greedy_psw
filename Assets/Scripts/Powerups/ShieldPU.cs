@@ -6,10 +6,12 @@ public class ShieldPU :  BasePowerup
 {
     public GameObject powerupEffect;
 
-    public void OnTriggerEnter(Collider other)
+    void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("Collision entered");
         if(other.CompareTag("Player"))
         {
+            Debug.Log("Player entered");
             PickUp(powerupEffect, other, 1);
         }
     }
