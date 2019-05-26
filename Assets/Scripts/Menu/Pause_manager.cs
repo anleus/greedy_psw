@@ -29,6 +29,7 @@ public class Pause_manager : MonoBehaviour
 
     public void Continuar()
     {
+        gameManager.onGamePaused();
         menuPause.enabled = !menuPause.enabled;
     }
 
