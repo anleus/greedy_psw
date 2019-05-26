@@ -97,5 +97,4 @@ public class PlayerController : Character
             yield return new WaitForSeconds(0.5f);
         }
     }
-
 }

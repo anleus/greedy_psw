@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool acceptPlayerInput;
 
+    // Para powerups
+    public bool shielOn;
+    public bool trespasserOn;
+
+
     public enum CurrentState
     {
         PLAYING = 1,
@@ -21,6 +26,7 @@ public class GameManager : MonoBehaviour
     public CurrentState state;
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats;
+    public PlayerController playerController;
     public Animator anim;
 
     public int lifes { get; private set; }
@@ -80,6 +86,14 @@ public class GameManager : MonoBehaviour
             playerStats = getPlayer().GetComponent<PlayerStats>();
 
         return playerStats;
+    }
+
+    public PlayerController getPlayerController()
+    {
+        if (playerController == null)
+            playerController = getPlayer().GetComponent<PlayerController>();
+
+        return playerController;
     }
 
     public Animator getAnim()

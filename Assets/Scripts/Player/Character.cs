@@ -36,4 +36,10 @@ public abstract class Character : MonoBehaviour
         // animator.SetBool("stop", (rigidBody.velocity == Vector2.zero));
         animator.SetBool("stop", (Input.anyKey == false) && (direction == Vector2.zero));
     }
+
+    // Para powerups
+    public void SetPlayerSpeed(float vel) // Speed base = 500f
+    {
+        speed = vel;
+    }
 }
