@@ -17505,7 +17505,7 @@ MonoBehaviour:
   explosion: {fileID: 8300000, guid: afd4319bd6029b64eb6de6b37b5fcd42, type: 3}
   monkeyDeath: {fileID: 0}
   lifeClink: {fileID: 0}
-  mapMusic: {fileID: 0}
+  mapMusic: {fileID: 8300000, guid: 5331405a6d9b0dc409439d70b9868e97, type: 3}
   audioSources: []
 --- !u!82 &1418663445
 AudioSource:
