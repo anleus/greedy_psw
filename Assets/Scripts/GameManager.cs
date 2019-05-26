@@ -213,9 +213,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        PlayerStats stats = getPlayerStats();
-        if (stats != null)
+        GameObject player = getPlayer();
+        PlayerStats stats;
+        if (player != null)
         {
+            stats = getPlayerStats();
             calories = stats.calories;
             damageReceived = stats.health;
             lifes = stats.lifes;
