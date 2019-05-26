@@ -5,6 +5,9 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     [SerializeField] private float speed = 500f;
+
+    // Con powerup de velocidad, setealo a 0.15
+    public float stepSoundCooldown = 0.25f;
     protected Vector2 direction;
 
     protected Animator animator;
@@ -40,6 +43,11 @@ public abstract class Character : MonoBehaviour
     // Para powerups
     public void SetPlayerSpeed(float vel) // Speed base = 500f
     {
+        if(vel > 500f) {
+            stepSoundCooldown = 0.15f;
+        } else {
+            stepSoundCooldown = 0.25f;
+        }
         speed = vel;
     }
 }
