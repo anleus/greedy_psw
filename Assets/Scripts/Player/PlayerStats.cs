@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerStatsData
+public class PlayerStatsData 
 {
     public int lifes { get; set; }
     public int calories { get; set; }

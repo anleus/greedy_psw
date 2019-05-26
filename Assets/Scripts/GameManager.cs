@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public int calories { get; private set; }
     public int damageReceived { get; private set; }
 
-    private PlayerStats playerStatsCopy;
+    private PlayerStatsData playerStatsCopy;
 
 
     //Para crear particle systems se usa esto
