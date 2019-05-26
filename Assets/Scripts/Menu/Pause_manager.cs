@@ -35,13 +35,13 @@ public class Pause_manager : MonoBehaviour
     public void GuardarPartida()
     {
         Debug.Log("GAME WAS SAVED");
-        SaveSystem.SaveGame();
+        gameManager.saveGame();
     } 
 
     public void CargarPartida()
     {
         Debug.Log("GAME WAS RELOADED");
-        SaveSystem.LoadGame();
+        gameManager.loadGame();
     }
 
     public void VolverInicio()

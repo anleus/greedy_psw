@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -257,22 +258,10 @@ public class GameManager : MonoBehaviour
             if (state == CurrentState.PLAYING)
                 stats.setCurrentLevel(SceneManager.GetActiveScene().buildIndex);
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape)){
-		    onGamePaused();
-        }
-
    
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            Debug.Log("GAME WAS SAVED");
-            SaveSystem.SaveGame();
-        }
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            Debug.Log("GAME WAS RELOADED");
-            SaveSystem.LoadGame();
-        }
+         if (Input.GetKeyDown(KeyCode.F5)) saveGame();
+
+        if (Input.GetKeyDown(KeyCode.F6)) loadGame(); 
     }
 
     public void onGamePaused() {
@@ -398,4 +387,18 @@ public class GameManager : MonoBehaviour
         timeLeft = GameManager.instance.timeLimitMap;
     }
 
+    public void saveGame() {
+            Debug.Log("GAME WAS SAVED");
+            SaveSystem.SaveGame();
+
+            GameObject pos = GameObject.FindGameObjectWithTag("textPos");
+            
+        
+    }
+
+    public void loadGame() {     
+            Debug.Log("GAME WAS RELOADED");
+            SaveSystem.LoadGame();
+        
+    }
 }
