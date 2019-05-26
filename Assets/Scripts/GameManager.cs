@@ -310,7 +310,7 @@ public class GameManager : MonoBehaviour
             case 1 :  SceneManager.LoadScene(2); break;
             case 2 :  SceneManager.LoadScene(3); break;
             case 3 :  SceneManager.LoadScene(4); break;
-            case 4 :  SceneManager.LoadScene(6); break;
+            case 4 :  SceneManager.LoadScene(5); break;
             default : SceneManager.LoadScene("Scenes/YouWin"); state = CurrentState.WATCHING_UI; break;
         }
         restoreStats();
