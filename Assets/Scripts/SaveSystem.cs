@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
 
 public static class SaveSystem
 {
-    public static void SavePlayerData() 
+    public static void SavePlayerData()
     {
         PlayerStats ps = GameManager.instance.getPlayerStats();
 
@@ -93,5 +94,48 @@ public static class SaveSystem
 
         GameManager.instance.Invoke("spawnEdiblesFromLastSave", 0.25f);
         GameManager.instance.Invoke("spawnPlayerFromLastSave", 0.25f);
+    }
+
+
+
+
+    public static void SaveRanking()
+    {
+        Debug.Log("Saving Ranking!!");
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/ranking.fun";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PlayerStatsData[] rankingData = GameManager.instance.playerRanking;
+
+        for (int i = 0; i < rankingData.Length; i++)
+        {
+            if (rankingData[i] != null)
+                Debug.Log("STORING CALORIES: " + rankingData[i].calories);
+        }
+
+        formatter.Serialize(stream, rankingData);
+        stream.Close();
+    }
+
+    public static PlayerStatsData[] LoadRanking()
+    {
+        string path = Application.persistentDataPath + "/ranking.fun";
+        if (File.Exists(path))
+        {
+            Debug.Log(path);
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            PlayerStatsData[] rankingData = formatter.Deserialize(stream) as PlayerStatsData[];
+
+            stream.Close();
+            return rankingData;
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + path);
+            return new PlayerStatsData[3];
+        }
     }
 }

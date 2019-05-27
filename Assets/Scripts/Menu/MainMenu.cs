@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
 {
     public TextMeshProUGUI caloriesText;
 
+    public void Start()
+    {
+
+    }
     public void Update()
     {
         if (GameManager.instance != null && caloriesText != null)
