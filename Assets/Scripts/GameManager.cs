@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using static System.DateTime;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     public float LifeSpawnCooldown;
     public SpriteRenderer spriteRenderer;
     public bool acceptPlayerInput;
+
+    public PlayerStatsData[] playerRanking;
 
     // Para powerups
     public bool shielOn;
@@ -48,13 +51,13 @@ public class GameManager : MonoBehaviour
     {
         Vector3 effectPosition = position;
 
-        Debug.Log("position: " + position + " effectposition: " + effectPosition);
+        //Debug.Log("position: " + position + " effectposition: " + effectPosition);
         GameObject particleSystem = Instantiate(effect, effectPosition, Quaternion.identity, parent);
         if (parent != null)
             particleSystem.transform.localPosition = position;
         particleSystem.layer = 8; // Particles
 
-        Debug.Log("Creatin particles: " + effect.name + " in: " + effectPosition);
+        //Debug.Log("Creatin particles: " + effect.name + " in: " + effectPosition);
 
         return particleSystem;
     }
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
             entity.transform.position = position;
         }
 
-        Debug.Log("Created Entity: " + prefab.name + " in: " + entityPosition);
+        //Debug.Log("Created Entity: " + prefab.name + " in: " + entityPosition);
 
         return entity;
     }
@@ -117,7 +120,7 @@ public class GameManager : MonoBehaviour
     public void spawnPlayer()
     {
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
-        GameObject spawnpoint = spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
+        GameObject spawnpoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length - 1)];
 
         getPlayer().transform.position = spawnpoint.transform.position;
         //Debug.Log("PLAYER HAS BEEN SPAWNED");
@@ -194,7 +197,6 @@ public class GameManager : MonoBehaviour
             return null;  // NO FREE SPAWNPOINTS
 
         // Start Picking What Edible To Spawn
-        Debug.Log("PosInArray: " + posInArray);
         if (posInArray == -1)
             posInArray = Random.Range(0, AssetManager.instance.fruitsVegetablesPrefabs.Length);
 
@@ -233,14 +235,23 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         timeLeft = GameManager.instance.timeLimitMap;
+
+        playerRanking = SaveSystem.LoadRanking();
         Debug.Log("STARTING " + timeLeft);
+        Debug.Log("Ranking");
+        for (int i = 0; i < playerRanking.Length; i++)
+        {
+            if (playerRanking[i] != null)
+                Debug.Log("Calories: " + playerRanking[i].calories);
+        }
+
+        Time.timeScale = 1f;
     }
 
     private void Update()
     {
         GameObject player = getPlayer();
         PlayerStats stats;
-       
 
         timeLeft -= Time.deltaTime;
 
@@ -299,10 +310,46 @@ public class GameManager : MonoBehaviour
 
     private void ChangeToGameOver()
     {
+        Debug.Log("ChangeToGameOver");
+        SaveCurrentMatch();
+
         SceneManager.LoadScene("Scenes/GameOver");
         state = CurrentState.WATCHING_UI;
     }
 
+    private void SaveCurrentMatch()
+    {
+        PlayerStatsData currentData = new PlayerStatsData();
+        currentData.calories = calories;
+        currentData.time = System.DateTime.Now;
+
+        int length = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            if (playerRanking[i] != null && playerRanking[i].calories > 0)
+                length++;
+        }
+
+        if (length < 3)
+        {
+            Debug.Log("LENGTH IS " + length);
+            playerRanking[length] = currentData;
+        }
+        else
+        {
+            Debug.Log("Length is 3 wtf");
+            for (int i = 2; i <= 0; i--)
+                if (playerRanking[i].calories < currentData.calories)
+                {
+                    playerRanking[i] = currentData;
+                    break;
+                }
+        }
+            
+
+        SaveSystem.SaveRanking();
+    }
+     
     public void EatFruit(GameObject o)
     {
         GoodVegetable vegetable;

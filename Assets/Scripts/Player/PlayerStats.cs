@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System;
+[Serializable]
 public class PlayerStatsData 
 {
     public int lifes { get; set; }
     public int calories { get; set; }
     public int health { get; set; }
+    public DateTime time { get; set; }
 }
 public class PlayerStats : MonoBehaviour
 {
