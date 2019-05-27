@@ -12,6 +12,7 @@ TagManager:
   - Eatable
   - Food_spawns
   - Lifes_spawns
+  - PowerUp
   layers:
   - Default
   - TransparentFX

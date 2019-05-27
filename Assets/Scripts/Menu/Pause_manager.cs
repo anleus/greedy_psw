@@ -7,30 +7,35 @@ using UnityEngine.UI;
 public class Pause_manager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameManager gameManager;
-    public Canvas menuPause;
+    private GameManager gameManager = GameManager.instance;
+    //public Canvas menuPause;
+    public GameObject pauseMenuUI;
+    //public bool menuPaused = false;
 
-    void Start()
-    {
-        gameManager = GameManager.instance;
-        menuPause.enabled = false;
-    }
-
-    // Update is called once per frame
+    /*
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameManager.onGamePaused();
-            menuPause.enabled = !menuPause.enabled;
+            //menuPause.enabled = !menuPause.enabled;
         }
     }
+     */
 
-    public void Continuar()
+    public void QuitPauseMenu()
     {
-        gameManager.onGamePaused();
-        menuPause.enabled = !menuPause.enabled;
+        pauseMenuUI.SetActive(false);
+        //menuPaused = false;
+        //gameManager.onGamePaused();
+        //menuPause.enabled = !menuPause.enabled;
+    }
+
+    public void ActivatePauseMenu()
+    {
+        pauseMenuUI.SetActive(true);
+        //menuPaused = true;
     }
 
     public void GuardarPartida()
