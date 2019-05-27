@@ -6,12 +6,16 @@ public class BasePowerup : MonoBehaviour
 {
     private static int SHIELD = 0;
     private static int FLASH = 1;
-    private static int TRESPASS = 2;
+    private static int STOP = 2;
     private int shieldDuration = 3;
     private int flashDuration = 5;
-    private int trespassDuration = 4;
+    private int stopDuration = 4;
     private float baseSpeed;
     private int multiplier = 2;
+    private GameObject[] enemies;
+    public GameObject deathEffect;
+    public GameObject lifeEffect;
+    public GameObject shieldEffect;
 
     protected void PickUp(GameObject powerEffect, Collision2D player, int number) 
     {
@@ -26,8 +30,8 @@ public class BasePowerup : MonoBehaviour
         if(number == FLASH){
             StartCoroutine(ApplyFlash(controller));
         }
-        if(number == TRESPASS){
-            StartCoroutine(ApplyTrespass());
+        if(number == STOP){
+            StartCoroutine(ApplyStop());
         }
 
         // Quitar el objeto
@@ -39,7 +43,6 @@ public class BasePowerup : MonoBehaviour
         // cuando choque con un objeto, 
         // comprueba primero que no tenga el escudo puesto para aplicarle el daño
         //GameManager.instance.shielOn = true;
-
         player.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 
         // espera 3 segundos
@@ -51,7 +54,6 @@ public class BasePowerup : MonoBehaviour
 
     IEnumerator ApplyFlash(PlayerController controller)
     {
-        Debug.Log("GOTTA GO FAST");
         baseSpeed = controller.speed;
         controller.SetPlayerSpeed(baseSpeed * multiplier);
 
@@ -60,19 +62,37 @@ public class BasePowerup : MonoBehaviour
 
 
         controller.SetPlayerSpeed(baseSpeed);
-        Debug.Log("No more fast");
         Destroy(gameObject);
     }
 
-    IEnumerator ApplyTrespass()
+    IEnumerator ApplyStop()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         // lo de usar para este efecto (no chocarte con cosas) una variable booleana
         // es una idea, pero vamos que haz como lo veas eh
         // asegurate de que si se le acaba el efecto y se queda encima de un collider no se quede buggeado
-        GameManager.instance.trespasserOn = true;
+        //GameManager.instance.trespasserOn = true;
+        foreach (GameObject enemy in enemies)
+        {
+            //Debug.Log("Enemy: " + enemy.name);
+            Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+            if (rb != null) {
+                enemy.SetActive(false);
+                Instantiate(deathEffect, enemy.transform.position, Quaternion.identity);
+            }
+        }
+
         // espera 3 segundos
-        yield return new WaitForSeconds(trespassDuration);
-        GameManager.instance.trespasserOn = false;
+        yield return new WaitForSeconds(stopDuration);
+        //GameManager.instance.trespasserOn = false;
+        foreach (GameObject enemy in enemies)
+        {
+            Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+            if (rb != null) {
+                enemy.SetActive(true);
+                Instantiate(lifeEffect, enemy.transform.position, Quaternion.identity);
+            }
+        }
         Destroy(gameObject);
     }
 
