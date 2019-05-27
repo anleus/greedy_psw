@@ -837,15 +837,15 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1467044505476309775, guid: b842a44a87c05b044a702bd8a229fa9a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1467044505476309774, guid: b842a44a87c05b044a702bd8a229fa9a,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467044505476309775, guid: b842a44a87c05b044a702bd8a229fa9a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b842a44a87c05b044a702bd8a229fa9a, type: 3}
@@ -10395,6 +10395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas-menu 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5599523686437072137, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5599523686437072134, guid: 600916e796aef4c4992c267f6b90be19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12376,7 +12381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1490887238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15377,15 +15382,15 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1467044505476309775, guid: b842a44a87c05b044a702bd8a229fa9a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1467044505476309774, guid: b842a44a87c05b044a702bd8a229fa9a,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467044505476309775, guid: b842a44a87c05b044a702bd8a229fa9a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b842a44a87c05b044a702bd8a229fa9a, type: 3}

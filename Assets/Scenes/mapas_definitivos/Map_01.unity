@@ -472,6 +472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldPU
       objectReference: {fileID: 0}
+    - target: {fileID: 698336913073891439, guid: 9ac06995fdbccfb40b74a0ccd4ce325e,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     - target: {fileID: 698336912814638996, guid: 9ac06995fdbccfb40b74a0ccd4ce325e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13771,6 +13776,7 @@ MonoBehaviour:
   acceptPlayerInput: 0
   shielOn: 0
   trespasserOn: 0
+  pauseManager: {fileID: 0}
   state: 1
   playerStats: {fileID: 2022855625}
   playerController: {fileID: 0}
@@ -14039,7 +14045,7 @@ PrefabInstance:
     - target: {fileID: 5599523686437072137, guid: 600916e796aef4c4992c267f6b90be19,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5599523686437072134, guid: 600916e796aef4c4992c267f6b90be19,
         type: 3}
@@ -14159,6 +14165,41 @@ PrefabInstance:
     - target: {fileID: 5599523686366460221, guid: 600916e796aef4c4992c267f6b90be19,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523687880602408, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15582,6 +15623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StopPU
       objectReference: {fileID: 0}
+    - target: {fileID: 7594897423364659439, guid: 9e4db0a55b559ae49b26027d7b5fba74,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     - target: {fileID: 7594897423105652500, guid: 9e4db0a55b559ae49b26027d7b5fba74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15696,6 +15742,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBeingUsed: 0
   currentObject: {fileID: 0}
+--- !u!1 &1679237918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5599523686437072137, guid: 600916e796aef4c4992c267f6b90be19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1262503960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1713273002
 GameObject:
   m_ObjectHideFlags: 0
@@ -15805,6 +15857,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlashPU
+      objectReference: {fileID: 0}
+    - target: {fileID: 7594897423364659439, guid: 9e4db0a55b559ae49b26027d7b5fba74,
+        type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 7594897423105652500, guid: 9e4db0a55b559ae49b26027d7b5fba74,
         type: 3}
@@ -16212,10 +16269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d0435590512124fa0ac3dd72e51562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEffect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
-  lifeEffect: {fileID: 100004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
-  shieldEffect: {fileID: 0}
-  powerupEffect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
 --- !u!4 &2006191092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1467044505476309760, guid: b842a44a87c05b044a702bd8a229fa9a,
@@ -16249,6 +16302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033807558}
+  - component: {fileID: 2033807559}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -16274,6 +16328,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2033807559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033807557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1de6e7eb14be4884c530757c7999a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 1679237918}
 --- !u!1 &2060333900
 GameObject:
   m_ObjectHideFlags: 0

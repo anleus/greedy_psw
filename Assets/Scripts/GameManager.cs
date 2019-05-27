@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public bool trespasserOn;
 
 
+    // Para menu de pausa
+    public Pause_manager pauseManager = new Pause_manager();
+
     public enum CurrentState
     {
         PLAYING = 1,
@@ -259,14 +262,22 @@ public class GameManager : MonoBehaviour
                 stats.setCurrentLevel(SceneManager.GetActiveScene().buildIndex);
         }
    
-         if (Input.GetKeyDown(KeyCode.F5)) saveGame();
+        if (Input.GetKeyDown(KeyCode.F5)) saveGame();
 
         if (Input.GetKeyDown(KeyCode.F6)) loadGame(); 
+
+        if (Input.GetKeyDown(KeyCode.Escape)) onGamePaused(); 
     }
 
     public void onGamePaused() {
-        if (Time.timeScale == 1) Time.timeScale = 0;
-        else if (Time.timeScale == 0) Time.timeScale = 1;
+        if (Time.timeScale == 1) { 
+            pauseManager.ActivatePauseMenu();
+            Time.timeScale = 0; 
+        }
+        else if (Time.timeScale == 0) {
+            pauseManager.QuitPauseMenu();
+            Time.timeScale = 1;
+        }
     }
 
 

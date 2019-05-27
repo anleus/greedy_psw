@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2362706676140852054}
   m_Layer: 0
   m_Name: ShieldPU
-  m_TagString: Eatable
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,4 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706d40334a4653344a4b96b7d7cfd1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 0}
+  lifeEffect: {fileID: 0}
+  shieldEffect: {fileID: 0}
   powerupEffect: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
