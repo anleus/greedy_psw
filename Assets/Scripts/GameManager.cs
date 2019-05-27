@@ -245,6 +245,8 @@ public class GameManager : MonoBehaviour
         timeLeft = GameManager.instance.timeLimitMap;
 
         playerRanking = SaveSystem.LoadRanking();
+        sortRanking();
+
         Debug.Log("STARTING " + timeLeft);
         Debug.Log("Ranking");
         for (int i = 0; i < playerRanking.Length; i++)
@@ -294,6 +296,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        sortRanking();
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
         Animator playerAnimator = getPlayer().GetComponent<Animator>();
@@ -309,6 +312,12 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("Scenes/GameOver");
         state = CurrentState.WATCHING_UI;
+    }
+
+    public void sortRanking()
+    {
+        System.Array.Sort(playerRanking,
+             delegate (PlayerStatsData x, PlayerStatsData y) { return y.calories - x.calories; });
     }
 
     private void SaveCurrentMatch()
