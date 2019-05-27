@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
 
     // Para menu de pausa
-    public Pause_manager pauseManager = new Pause_manager();
+    public Pause_manager pauseManager;
 
     public enum CurrentState
     {
@@ -106,6 +106,14 @@ public class GameManager : MonoBehaviour
             playerController = getPlayer().GetComponent<PlayerController>();
 
         return playerController;
+    }
+
+    public Pause_manager getPauseManager()
+    {
+        if (pauseManager == null)
+            pauseManager = getPlayer().GetComponent<Pause_manager>();
+
+        return pauseManager;
     }
 
     public Animator getAnim()
@@ -276,21 +284,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F5)) saveGame();
 
         if (Input.GetKeyDown(KeyCode.F6)) loadGame(); 
-
-        if (Input.GetKeyDown(KeyCode.Escape)) onGamePaused(); 
     }
-
-    public void onGamePaused() {
-        if (Time.timeScale == 1) { 
-            pauseManager.ActivatePauseMenu();
-            Time.timeScale = 0; 
-        }
-        else if (Time.timeScale == 0) {
-            pauseManager.QuitPauseMenu();
-            Time.timeScale = 1;
-        }
-    }
-
 
     private void startSpawningLifes()
     {

@@ -6,48 +6,51 @@ using UnityEngine.UI;
 
 public class Pause_manager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private GameManager gameManager = GameManager.instance;
-    //public Canvas menuPause;
     public GameObject pauseMenuUI;
-    //public bool menuPaused = false;
-
-    /*
+    public static bool menuPaused = false;
+    
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameManager.onGamePaused();
-            //menuPause.enabled = !menuPause.enabled;
+            if (!menuPaused) { 
+                ActivatePauseMenu();
+
+            }
+            else {
+                QuitPauseMenu();
+            }
         }
     }
-     */
+    
+    public void ActivatePauseMenu()
+    {
+        Debug.Log("ActivatePauseMenu");
+        menuPaused = true;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0; 
+    }
 
     public void QuitPauseMenu()
     {
+        Debug.Log("QuitPauseMenu");
+        menuPaused = false;
         pauseMenuUI.SetActive(false);
-        //menuPaused = false;
-        //gameManager.onGamePaused();
-        //menuPause.enabled = !menuPause.enabled;
+        Time.timeScale = 1;
     }
 
-    public void ActivatePauseMenu()
-    {
-        pauseMenuUI.SetActive(true);
-        //menuPaused = true;
-    }
 
     public void GuardarPartida()
     {
         Debug.Log("GAME WAS SAVED");
-        gameManager.saveGame();
+        GameManager.instance.saveGame();
     } 
 
     public void CargarPartida()
     {
         Debug.Log("GAME WAS RELOADED");
-        gameManager.loadGame();
+        GameManager.instance.loadGame();
     }
 
     public void VolverInicio()

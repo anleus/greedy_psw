@@ -13774,6 +13774,7 @@ MonoBehaviour:
   LifeSpawnCooldown: 50
   spriteRenderer: {fileID: 0}
   acceptPlayerInput: 0
+  playerRanking: []
   shielOn: 0
   trespasserOn: 0
   pauseManager: {fileID: 0}
@@ -14045,7 +14046,7 @@ PrefabInstance:
     - target: {fileID: 5599523686437072137, guid: 600916e796aef4c4992c267f6b90be19,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5599523686437072134, guid: 600916e796aef4c4992c267f6b90be19,
         type: 3}
@@ -14201,6 +14202,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523686789559648, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523688289482419, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523686789556894, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523686789556894, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523686789556894, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599523686789556894, guid: 600916e796aef4c4992c267f6b90be19,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 600916e796aef4c4992c267f6b90be19, type: 3}
@@ -15307,6 +15338,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 999
   m_TargetDisplay: 0
+--- !u!1 &1508936883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5599523686789559648, guid: 600916e796aef4c4992c267f6b90be19,
+    type: 3}
+  m_PrefabInstance: {fileID: 1262503960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530744797
 GameObject:
   m_ObjectHideFlags: 0
@@ -15742,12 +15779,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBeingUsed: 0
   currentObject: {fileID: 0}
---- !u!1 &1679237918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5599523686437072137, guid: 600916e796aef4c4992c267f6b90be19,
-    type: 3}
-  m_PrefabInstance: {fileID: 1262503960}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1713273002
 GameObject:
   m_ObjectHideFlags: 0
@@ -16340,7 +16371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a1de6e7eb14be4884c530757c7999a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 1679237918}
+  pauseMenuUI: {fileID: 1508936883}
 --- !u!1 &2060333900
 GameObject:
   m_ObjectHideFlags: 0
