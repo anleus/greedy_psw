@@ -40,14 +40,11 @@ public class BasePowerup : MonoBehaviour
 
     IEnumerator ApplyShield(Collision2D player)
     {
-        // cuando choque con un objeto, 
-        // comprueba primero que no tenga el escudo puesto para aplicarle el daño
-        //GameManager.instance.shielOn = true;
         player.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 
         // espera 3 segundos
         yield return new WaitForSeconds(shieldDuration);
-        //GameManager.instance.shielOn = false;
+
         player.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
         Destroy(gameObject);
     }
