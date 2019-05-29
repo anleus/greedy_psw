@@ -12,6 +12,7 @@ public class EnemyControll : MonoBehaviour
     float moveSpeed = 2f;
 
     float difficulty;
+    float realSpeed;
 
     int waypointIndex = 0;
 
@@ -49,9 +50,9 @@ public class EnemyControll : MonoBehaviour
 
         jose.Facing(dir);
 
-        //Debug.Log(dir);
-
-        transform.position = Vector2.MoveTowards(ini, fin, difficulty* moveSpeed * Time.deltaTime);
+        realSpeed = Mathf.Min(0.08f, Mathf.Round(difficulty * moveSpeed * Time.deltaTime * 100f) / 100f);
+        
+        transform.position = Vector2.MoveTowards(ini, fin, realSpeed);
 
         if (transform.position == waypoints[waypointIndex].transform.position) {
             waypointIndex += 1;

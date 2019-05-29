@@ -11,7 +11,6 @@ public class AI : MonoBehaviour
 
     private Transform target;
     private Skypiece_animator dogo;
-    //private Base_enemy baseEnemy;
 
     void Awake()
     {
@@ -43,10 +42,8 @@ public class AI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision");
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("enemy");
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
     }
