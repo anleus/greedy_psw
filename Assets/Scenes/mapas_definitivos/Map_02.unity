@@ -11428,7 +11428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2022855624}
-  timeLimitMap: 0
+  timeLimitMap: 60
   LifeSpawnCooldown: 50
   spriteRenderer: {fileID: 0}
   acceptPlayerInput: 0
