@@ -449,17 +449,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void saveGame() {
-            Debug.Log("GAME WAS SAVED");
-            SaveSystem.SaveGame();
+        Debug.Log("GAME WAS SAVED");
+        SaveSystem.SaveGame();
 
-            GameObject pos = GameObject.FindGameObjectWithTag("textPos");
-            
-        
+        //GameObject pos = GameObject.FindGameObjectWithTag("textPos");
     }
 
     public void loadGame() {     
-            Debug.Log("GAME WAS RELOADED");
-            SaveSystem.LoadGame();
-        
+        Debug.Log("GAME WAS RELOADED");
+        SaveSystem.LoadGame();
     }
 }
