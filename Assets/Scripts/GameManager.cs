@@ -265,6 +265,11 @@ public class GameManager : MonoBehaviour
 
         timeLeft -= Time.deltaTime;
 
+        if (timeLeft < 0) {
+           
+            damageByTimeOut();
+        }
+
         if (player != null)
         {
             stats = getPlayerStats();
@@ -399,10 +404,22 @@ public class GameManager : MonoBehaviour
         storeStats ();
         DontDestroyOnLoad(playerObject);
         switch (SceneManager.GetActiveScene().buildIndex) {
-            case 1 :  SceneManager.LoadScene(2); break;
-            case 2 :  SceneManager.LoadScene(3); break;
-            case 3 :  SceneManager.LoadScene(4); break;
-            case 4 :  SceneManager.LoadScene(5); break;
+            case 1 :  
+                SceneManager.LoadScene(2); 
+                resetCountdown();
+                break;
+            case 2 :  
+                SceneManager.LoadScene(3); 
+                resetCountdown();
+                break;
+            case 3 :  
+                SceneManager.LoadScene(4);
+                resetCountdown();
+                break;
+            case 4 :  
+                SceneManager.LoadScene(5);
+                resetCountdown();
+                break;
             default : SceneManager.LoadScene("Scenes/YouWin"); state = CurrentState.WATCHING_UI; break;
         }
         restoreStats();
@@ -453,6 +470,17 @@ public class GameManager : MonoBehaviour
         }
 
         timeLeft = GameManager.instance.timeLimitMap;
+    }
+
+    private void resetCountdown() {
+            timeLeft = timeLimitMap;
+            Debug.Log("tiempo acabado");
+    }
+
+    private void damageByTimeOut() {
+        playerStats.ReduceLifes(1, true);
+         resetCountdown();
+        Debug.Log("me he pasao y man matao");
     }
 
     public void saveGame() {
