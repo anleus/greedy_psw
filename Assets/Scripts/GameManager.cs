@@ -316,8 +316,15 @@ public class GameManager : MonoBehaviour
 
     public void sortRanking()
     {
-        System.Array.Sort(playerRanking,
-             delegate (PlayerStatsData x, PlayerStatsData y) { return y.calories - x.calories; });
+        if(playerRanking.Length > 0) {
+            System.Array.Sort(playerRanking,
+                delegate (PlayerStatsData x, PlayerStatsData y) { 
+                    int calX = (x != null) ? x.calories : 0;
+                    int calY = (y != null) ? y.calories : 0;
+                    return calY - calX;
+                }
+            );
+        }
     }
 
     private void SaveCurrentMatch()
