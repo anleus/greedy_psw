@@ -11439,7 +11439,7 @@ MonoBehaviour:
   state: 1
   playerStats: {fileID: 2022855625}
   playerController: {fileID: 0}
-  anim: {fileID: 1490887239}
+  anim: {fileID: 0}
 --- !u!4 &972011735
 Transform:
   m_ObjectHideFlags: 0
@@ -12036,7 +12036,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 536940819
   m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &1357654676
