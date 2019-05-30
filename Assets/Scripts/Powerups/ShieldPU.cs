@@ -10,6 +10,7 @@ public class ShieldPU :  BasePowerup
     {
         if(other.gameObject.tag == "Player")
         {
+            Debug.Log("Player encountered the shield PU");
             PickUp(powerupEffect, other, 0);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<CircleCollider2D>().enabled = false;

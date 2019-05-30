@@ -40,6 +40,7 @@ public class BasePowerup : MonoBehaviour
 
     IEnumerator ApplyShield(Collision2D player)
     {
+        Debug.Log("player is:" + player.gameObject.name);
         player.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 
         // espera 3 segundos

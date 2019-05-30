@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Lo sacamos en awake del playerObject para no hacer getComponent tol rato
     public PlayerStats playerStats;
     public PlayerController playerController;
-    public Animator anim;
+    //public Animator anim;
 
 
     public int lifes { get; private set; }
@@ -115,14 +115,15 @@ public class GameManager : MonoBehaviour
 
         return pauseManager;
     }
-
+    /*
     public Animator getAnim()
     {
-        if (anim == null) 
+        if (!anim.Equals(null)) {
             anim = GameObject.Find("CanvasBlackFade").GetComponent<Animator>();
-
+        }
         return  anim;
     }
+    */
 
     // Para spawnear al jugador
     public void spawnPlayer()
@@ -393,9 +394,14 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        /*
+        Animator anim = getAnim();
         //Si no os funciona, coged el animator del Canvas que tiene BlackFade
         //y arrastradlo a GameManager
-        getAnim().SetTrigger("gameOver");
+        if (anim.gameObject.activeSelf != null) {
+            anim.SetTrigger("gameOver");
+        }
+         */
         Invoke("ChangeToWin", 1f);
     }
 

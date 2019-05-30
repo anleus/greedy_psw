@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+
 [Serializable]
 public class PlayerStatsData 
 {
@@ -12,6 +13,7 @@ public class PlayerStatsData
     public int health { get; set; }
     public DateTime time { get; set; }
 }
+
 public class PlayerStats : MonoBehaviour
 {
     public static int MaxLifes = 3;
