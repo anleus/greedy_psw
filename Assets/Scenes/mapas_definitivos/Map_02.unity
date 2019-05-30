@@ -11438,7 +11438,7 @@ MonoBehaviour:
   pauseManager: {fileID: 0}
   state: 1
   playerStats: {fileID: 2022855625}
-  playerController: {fileID: 0}
+  playerController: {fileID: 1481522099}
   anim: {fileID: 1490887239}
 --- !u!4 &972011735
 Transform:
@@ -12959,6 +12959,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1481522097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481522099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6707531661150103761, guid: 5b9a785aef1aa0647b3a1940121bf670,
+    type: 3}
+  m_PrefabInstance: {fileID: 1481522097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022855624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59b9518c08881a4593b5e5dbf85fee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1489795648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1511005518295350696, guid: 5dfd853ffd10ddf47a901fe229627e76,
