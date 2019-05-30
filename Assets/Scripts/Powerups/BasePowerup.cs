@@ -41,12 +41,34 @@ public class BasePowerup : MonoBehaviour
     IEnumerator ApplyShield(Collision2D player)
     {
         Debug.Log("player is:" + player.gameObject.name);
-        player.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //player.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                //GameManager.instance.trespasserOn = true;
+        foreach (GameObject enemy in enemies)
+        {
+            //Debug.Log("Enemy: " + enemy.name);
+            Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+            if (rb != null) {
+                enemy.GetComponent<Collider2D>().isTrigger = true;
+                //Instantiate(deathEffect, enemy.transform.position, Quaternion.identity);
+            }
+        }
 
         // espera 3 segundos
         yield return new WaitForSeconds(shieldDuration);
+        Debug.Log("POST ESCUDO AHORA SE VA A IR O DEBERIA ASDASDASD");
 
-        player.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+        //GameManager.instance.trespasserOn = false;
+        foreach (GameObject enemy in enemies)
+        {
+            Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+            if (rb != null) {
+                enemy.GetComponent<Collider2D>().isTrigger = false;
+                //Instantiate(lifeEffect, enemy.transform.position, Quaternion.identity);
+            }
+        }
+
+        //player.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
         Destroy(gameObject);
     }
 
